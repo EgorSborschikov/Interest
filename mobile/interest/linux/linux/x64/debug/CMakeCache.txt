@@ -184,6 +184,12 @@ FLUTTER_TARGET_PLATFORM:UNINITIALIZED=linux-x64
 //pkg-config executable
 PKG_CONFIG_EXECUTABLE:FILEPATH=/snap/flutter/current/usr/bin/pkg-config
 
+//Value Computed by CMake
+gtk_BINARY_DIR:STATIC=/home/egor/Documents/flutter/interest/mobile/interest/linux/linux/x64/debug/plugins/gtk
+
+//Value Computed by CMake
+gtk_SOURCE_DIR:STATIC=/home/egor/Documents/flutter/interest/mobile/interest/linux/flutter/ephemeral/.plugin_symlinks/gtk/linux
+
 //Path to a library.
 pkgcfg_lib_GIO_gio-2.0:FILEPATH=/snap/flutter/current/usr/lib/x86_64-linux-gnu/libgio-2.0.so
 
@@ -237,6 +243,12 @@ runner_BINARY_DIR:STATIC=/home/egor/Documents/flutter/interest/mobile/interest/l
 
 //Value Computed by CMake
 runner_SOURCE_DIR:STATIC=/home/egor/Documents/flutter/interest/mobile/interest/linux/runner
+
+//Value Computed by CMake
+url_launcher_linux_BINARY_DIR:STATIC=/home/egor/Documents/flutter/interest/mobile/interest/linux/linux/x64/debug/plugins/url_launcher_linux
+
+//Value Computed by CMake
+url_launcher_linux_SOURCE_DIR:STATIC=/home/egor/Documents/flutter/interest/mobile/interest/linux/flutter/ephemeral/.plugin_symlinks/url_launcher_linux/linux
 
 
 ########################
@@ -325,7 +337,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=3
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=5
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

@@ -1,6 +1,8 @@
 /home/egor/Documents/flutter/interest/mobile/interest/linux/linux/x64/debug/bundle/interest
 /home/egor/Documents/flutter/interest/mobile/interest/linux/linux/x64/debug/bundle/data/icudtl.dat
 /home/egor/Documents/flutter/interest/mobile/interest/linux/linux/x64/debug/bundle/lib/libflutter_linux_gtk.so
+/home/egor/Documents/flutter/interest/mobile/interest/linux/linux/x64/debug/bundle/lib/libgtk_plugin.so
+/home/egor/Documents/flutter/interest/mobile/interest/linux/linux/x64/debug/bundle/lib/liburl_launcher_linux_plugin.so
 /home/egor/Documents/flutter/interest/mobile/interest/linux/linux/x64/debug/bundle/data/flutter_assets/fonts/MaterialIcons-Regular.otf
 /home/egor/Documents/flutter/interest/mobile/interest/linux/linux/x64/debug/bundle/data/flutter_assets/kernel_blob.bin
 /home/egor/Documents/flutter/interest/mobile/interest/linux/linux/x64/debug/bundle/data/flutter_assets/AssetManifest.json

@@ -1,9 +1,11 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
-import 'package:interest/features/auth/sign_up/view/sign_up_page.dart';
 import 'package:interest/l10n/locale_provider.dart';
+import 'package:interest/services/supabase/auth_gate.dart';
 import 'package:interest/ui/themes/themes.dart';
+import 'package:interest/utils/config.dart';
 import 'package:provider/provider.dart';
+import 'package:supabase_flutter/supabase_flutter.dart' as Supabase;
 import 'ui/themes/theme_provider.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -11,6 +13,11 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   LocaleProvider localeProvider = LocaleProvider();
+
+  await Supabase.Supabase.initialize(
+    url: supabaseUrl, 
+    anonKey: supabaseKey
+  );
 
   await localeProvider.loadLanguagePreference();
   
@@ -54,7 +61,7 @@ class InterestApp extends StatelessWidget {
       theme: themeProvider.isDarkTheme 
         ? darkTheme 
         : lightTheme,
-      home: SignUpPage(),
+      home: AuthGate()
     );
   }
 }

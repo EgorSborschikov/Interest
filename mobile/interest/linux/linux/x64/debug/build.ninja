@@ -262,13 +262,13 @@ build runner/edit_cache: phony runner/CMakeFiles/edit_cache.util
 #############################################
 # Order-only phony target for interest
 
-build cmake_object_order_depends_target_interest: phony || flutter/flutter_assemble
+build cmake_object_order_depends_target_interest: phony || cmake_object_order_depends_target_gtk_plugin cmake_object_order_depends_target_url_launcher_linux_plugin flutter/flutter_assemble
 
 build runner/CMakeFiles/interest.dir/main.cc.o: CXX_COMPILER__interest ../../../runner/main.cc || cmake_object_order_depends_target_interest
   DEFINES = -DAPPLICATION_ID=\"com.mobilsapp.interest\"
   DEP_FILE = runner/CMakeFiles/interest.dir/main.cc.o.d
   FLAGS = -g   -Wall -Werror -pthread
-  INCLUDES = -I../../../ -I../../../flutter/ephemeral -isystem /snap/flutter/current/usr/include/gtk-3.0 -isystem /snap/flutter/current/usr/include/at-spi2-atk/2.0 -isystem /snap/flutter/current/usr/include/at-spi-2.0 -isystem /snap/flutter/current/usr/include/dbus-1.0 -isystem /snap/flutter/current/usr/lib/x86_64-linux-gnu/dbus-1.0/include -isystem /snap/flutter/current/usr/include/gio-unix-2.0 -isystem /snap/flutter/current/usr/include/cairo -isystem /snap/flutter/current/usr/include/pango-1.0 -isystem /snap/flutter/current/usr/include/fribidi -isystem /snap/flutter/current/usr/include/harfbuzz -isystem /snap/flutter/current/usr/include/atk-1.0 -isystem /snap/flutter/current/usr/include/pixman-1 -isystem /snap/flutter/current/usr/include/uuid -isystem /snap/flutter/current/usr/include/freetype2 -isystem /snap/flutter/current/usr/include/libpng16 -isystem /snap/flutter/current/usr/include/gdk-pixbuf-2.0 -isystem /snap/flutter/current/usr/include/libmount -isystem /snap/flutter/current/usr/include/blkid -isystem /snap/flutter/current/usr/include/glib-2.0 -isystem /snap/flutter/current/usr/lib/x86_64-linux-gnu/glib-2.0/include
+  INCLUDES = -I../../../ -I../../../flutter/ephemeral -I../../../flutter/ephemeral/.plugin_symlinks/gtk/linux/include -I../../../flutter/ephemeral/.plugin_symlinks/url_launcher_linux/linux/include -isystem /snap/flutter/current/usr/include/gtk-3.0 -isystem /snap/flutter/current/usr/include/at-spi2-atk/2.0 -isystem /snap/flutter/current/usr/include/at-spi-2.0 -isystem /snap/flutter/current/usr/include/dbus-1.0 -isystem /snap/flutter/current/usr/lib/x86_64-linux-gnu/dbus-1.0/include -isystem /snap/flutter/current/usr/include/gio-unix-2.0 -isystem /snap/flutter/current/usr/include/cairo -isystem /snap/flutter/current/usr/include/pango-1.0 -isystem /snap/flutter/current/usr/include/fribidi -isystem /snap/flutter/current/usr/include/harfbuzz -isystem /snap/flutter/current/usr/include/atk-1.0 -isystem /snap/flutter/current/usr/include/pixman-1 -isystem /snap/flutter/current/usr/include/uuid -isystem /snap/flutter/current/usr/include/freetype2 -isystem /snap/flutter/current/usr/include/libpng16 -isystem /snap/flutter/current/usr/include/gdk-pixbuf-2.0 -isystem /snap/flutter/current/usr/include/libmount -isystem /snap/flutter/current/usr/include/blkid -isystem /snap/flutter/current/usr/include/glib-2.0 -isystem /snap/flutter/current/usr/lib/x86_64-linux-gnu/glib-2.0/include
   OBJECT_DIR = runner/CMakeFiles/interest.dir
   OBJECT_FILE_DIR = runner/CMakeFiles/interest.dir
 
@@ -276,7 +276,7 @@ build runner/CMakeFiles/interest.dir/my_application.cc.o: CXX_COMPILER__interest
   DEFINES = -DAPPLICATION_ID=\"com.mobilsapp.interest\"
   DEP_FILE = runner/CMakeFiles/interest.dir/my_application.cc.o.d
   FLAGS = -g   -Wall -Werror -pthread
-  INCLUDES = -I../../../ -I../../../flutter/ephemeral -isystem /snap/flutter/current/usr/include/gtk-3.0 -isystem /snap/flutter/current/usr/include/at-spi2-atk/2.0 -isystem /snap/flutter/current/usr/include/at-spi-2.0 -isystem /snap/flutter/current/usr/include/dbus-1.0 -isystem /snap/flutter/current/usr/lib/x86_64-linux-gnu/dbus-1.0/include -isystem /snap/flutter/current/usr/include/gio-unix-2.0 -isystem /snap/flutter/current/usr/include/cairo -isystem /snap/flutter/current/usr/include/pango-1.0 -isystem /snap/flutter/current/usr/include/fribidi -isystem /snap/flutter/current/usr/include/harfbuzz -isystem /snap/flutter/current/usr/include/atk-1.0 -isystem /snap/flutter/current/usr/include/pixman-1 -isystem /snap/flutter/current/usr/include/uuid -isystem /snap/flutter/current/usr/include/freetype2 -isystem /snap/flutter/current/usr/include/libpng16 -isystem /snap/flutter/current/usr/include/gdk-pixbuf-2.0 -isystem /snap/flutter/current/usr/include/libmount -isystem /snap/flutter/current/usr/include/blkid -isystem /snap/flutter/current/usr/include/glib-2.0 -isystem /snap/flutter/current/usr/lib/x86_64-linux-gnu/glib-2.0/include
+  INCLUDES = -I../../../ -I../../../flutter/ephemeral -I../../../flutter/ephemeral/.plugin_symlinks/gtk/linux/include -I../../../flutter/ephemeral/.plugin_symlinks/url_launcher_linux/linux/include -isystem /snap/flutter/current/usr/include/gtk-3.0 -isystem /snap/flutter/current/usr/include/at-spi2-atk/2.0 -isystem /snap/flutter/current/usr/include/at-spi-2.0 -isystem /snap/flutter/current/usr/include/dbus-1.0 -isystem /snap/flutter/current/usr/lib/x86_64-linux-gnu/dbus-1.0/include -isystem /snap/flutter/current/usr/include/gio-unix-2.0 -isystem /snap/flutter/current/usr/include/cairo -isystem /snap/flutter/current/usr/include/pango-1.0 -isystem /snap/flutter/current/usr/include/fribidi -isystem /snap/flutter/current/usr/include/harfbuzz -isystem /snap/flutter/current/usr/include/atk-1.0 -isystem /snap/flutter/current/usr/include/pixman-1 -isystem /snap/flutter/current/usr/include/uuid -isystem /snap/flutter/current/usr/include/freetype2 -isystem /snap/flutter/current/usr/include/libpng16 -isystem /snap/flutter/current/usr/include/gdk-pixbuf-2.0 -isystem /snap/flutter/current/usr/include/libmount -isystem /snap/flutter/current/usr/include/blkid -isystem /snap/flutter/current/usr/include/glib-2.0 -isystem /snap/flutter/current/usr/lib/x86_64-linux-gnu/glib-2.0/include
   OBJECT_DIR = runner/CMakeFiles/interest.dir
   OBJECT_FILE_DIR = runner/CMakeFiles/interest.dir
 
@@ -284,7 +284,7 @@ build runner/CMakeFiles/interest.dir/__/flutter/generated_plugin_registrant.cc.o
   DEFINES = -DAPPLICATION_ID=\"com.mobilsapp.interest\"
   DEP_FILE = runner/CMakeFiles/interest.dir/__/flutter/generated_plugin_registrant.cc.o.d
   FLAGS = -g   -Wall -Werror -pthread
-  INCLUDES = -I../../../ -I../../../flutter/ephemeral -isystem /snap/flutter/current/usr/include/gtk-3.0 -isystem /snap/flutter/current/usr/include/at-spi2-atk/2.0 -isystem /snap/flutter/current/usr/include/at-spi-2.0 -isystem /snap/flutter/current/usr/include/dbus-1.0 -isystem /snap/flutter/current/usr/lib/x86_64-linux-gnu/dbus-1.0/include -isystem /snap/flutter/current/usr/include/gio-unix-2.0 -isystem /snap/flutter/current/usr/include/cairo -isystem /snap/flutter/current/usr/include/pango-1.0 -isystem /snap/flutter/current/usr/include/fribidi -isystem /snap/flutter/current/usr/include/harfbuzz -isystem /snap/flutter/current/usr/include/atk-1.0 -isystem /snap/flutter/current/usr/include/pixman-1 -isystem /snap/flutter/current/usr/include/uuid -isystem /snap/flutter/current/usr/include/freetype2 -isystem /snap/flutter/current/usr/include/libpng16 -isystem /snap/flutter/current/usr/include/gdk-pixbuf-2.0 -isystem /snap/flutter/current/usr/include/libmount -isystem /snap/flutter/current/usr/include/blkid -isystem /snap/flutter/current/usr/include/glib-2.0 -isystem /snap/flutter/current/usr/lib/x86_64-linux-gnu/glib-2.0/include
+  INCLUDES = -I../../../ -I../../../flutter/ephemeral -I../../../flutter/ephemeral/.plugin_symlinks/gtk/linux/include -I../../../flutter/ephemeral/.plugin_symlinks/url_launcher_linux/linux/include -isystem /snap/flutter/current/usr/include/gtk-3.0 -isystem /snap/flutter/current/usr/include/at-spi2-atk/2.0 -isystem /snap/flutter/current/usr/include/at-spi-2.0 -isystem /snap/flutter/current/usr/include/dbus-1.0 -isystem /snap/flutter/current/usr/lib/x86_64-linux-gnu/dbus-1.0/include -isystem /snap/flutter/current/usr/include/gio-unix-2.0 -isystem /snap/flutter/current/usr/include/cairo -isystem /snap/flutter/current/usr/include/pango-1.0 -isystem /snap/flutter/current/usr/include/fribidi -isystem /snap/flutter/current/usr/include/harfbuzz -isystem /snap/flutter/current/usr/include/atk-1.0 -isystem /snap/flutter/current/usr/include/pixman-1 -isystem /snap/flutter/current/usr/include/uuid -isystem /snap/flutter/current/usr/include/freetype2 -isystem /snap/flutter/current/usr/include/libpng16 -isystem /snap/flutter/current/usr/include/gdk-pixbuf-2.0 -isystem /snap/flutter/current/usr/include/libmount -isystem /snap/flutter/current/usr/include/blkid -isystem /snap/flutter/current/usr/include/glib-2.0 -isystem /snap/flutter/current/usr/lib/x86_64-linux-gnu/glib-2.0/include
   OBJECT_DIR = runner/CMakeFiles/interest.dir
   OBJECT_FILE_DIR = runner/CMakeFiles/interest.dir/__/flutter
 
@@ -296,10 +296,10 @@ build runner/CMakeFiles/interest.dir/__/flutter/generated_plugin_registrant.cc.o
 #############################################
 # Link the executable intermediates_do_not_run/interest
 
-build intermediates_do_not_run/interest: CXX_EXECUTABLE_LINKER__interest runner/CMakeFiles/interest.dir/main.cc.o runner/CMakeFiles/interest.dir/my_application.cc.o runner/CMakeFiles/interest.dir/__/flutter/generated_plugin_registrant.cc.o | ../../../flutter/ephemeral/libflutter_linux_gtk.so /snap/flutter/current/usr/lib/x86_64-linux-gnu/libgtk-3.so /snap/flutter/current/usr/lib/x86_64-linux-gnu/libgdk-3.so /snap/flutter/current/usr/lib/x86_64-linux-gnu/libpangocairo-1.0.so /snap/flutter/current/usr/lib/x86_64-linux-gnu/libpango-1.0.so /snap/flutter/current/usr/lib/x86_64-linux-gnu/libharfbuzz.so /snap/flutter/current/usr/lib/x86_64-linux-gnu/libatk-1.0.so /snap/flutter/current/usr/lib/x86_64-linux-gnu/libcairo-gobject.so /snap/flutter/current/usr/lib/x86_64-linux-gnu/libcairo.so /snap/flutter/current/usr/lib/x86_64-linux-gnu/libgdk_pixbuf-2.0.so /snap/flutter/current/usr/lib/x86_64-linux-gnu/libgio-2.0.so /snap/flutter/current/usr/lib/x86_64-linux-gnu/libgobject-2.0.so /snap/flutter/current/usr/lib/x86_64-linux-gnu/libglib-2.0.so || flutter/flutter_assemble
+build intermediates_do_not_run/interest: CXX_EXECUTABLE_LINKER__interest runner/CMakeFiles/interest.dir/main.cc.o runner/CMakeFiles/interest.dir/my_application.cc.o runner/CMakeFiles/interest.dir/__/flutter/generated_plugin_registrant.cc.o | plugins/gtk/libgtk_plugin.so plugins/url_launcher_linux/liburl_launcher_linux_plugin.so ../../../flutter/ephemeral/libflutter_linux_gtk.so /snap/flutter/current/usr/lib/x86_64-linux-gnu/libgtk-3.so /snap/flutter/current/usr/lib/x86_64-linux-gnu/libgdk-3.so /snap/flutter/current/usr/lib/x86_64-linux-gnu/libpangocairo-1.0.so /snap/flutter/current/usr/lib/x86_64-linux-gnu/libpango-1.0.so /snap/flutter/current/usr/lib/x86_64-linux-gnu/libharfbuzz.so /snap/flutter/current/usr/lib/x86_64-linux-gnu/libatk-1.0.so /snap/flutter/current/usr/lib/x86_64-linux-gnu/libcairo-gobject.so /snap/flutter/current/usr/lib/x86_64-linux-gnu/libcairo.so /snap/flutter/current/usr/lib/x86_64-linux-gnu/libgdk_pixbuf-2.0.so /snap/flutter/current/usr/lib/x86_64-linux-gnu/libgio-2.0.so /snap/flutter/current/usr/lib/x86_64-linux-gnu/libgobject-2.0.so /snap/flutter/current/usr/lib/x86_64-linux-gnu/libglib-2.0.so || flutter/flutter_assemble plugins/gtk/libgtk_plugin.so plugins/url_launcher_linux/liburl_launcher_linux_plugin.so
   FLAGS = -g
   LINK_FLAGS = -B/snap/flutter/current/usr/lib/gcc/x86_64-linux-gnu/9 -B/snap/flutter/current/usr/lib/x86_64-linux-gnu -B/snap/flutter/current/lib/x86_64-linux-gnu -B/snap/flutter/current/usr/lib/ -L/snap/flutter/current/usr/lib/gcc/x86_64-linux-gnu/9 -L/snap/flutter/current/usr/lib/x86_64-linux-gnu -L/snap/flutter/current/lib/x86_64-linux-gnu -L/snap/flutter/current/usr/lib/ -lblkid -lgcrypt -llzma -llz4 -lgpg-error -luuid -lpthread -ldl -lepoxy -lfontconfig -B/snap/flutter/current/usr/lib/gcc/x86_64-linux-gnu/9 -B/snap/flutter/current/usr/lib/x86_64-linux-gnu -B/snap/flutter/current/lib/x86_64-linux-gnu -B/snap/flutter/current/usr/lib/ -L/snap/flutter/current/usr/lib/gcc/x86_64-linux-gnu/9 -L/snap/flutter/current/usr/lib/x86_64-linux-gnu -L/snap/flutter/current/lib/x86_64-linux-gnu -L/snap/flutter/current/usr/lib/ -lblkid -lgcrypt -llzma -llz4 -lgpg-error -luuid -lpthread -ldl -lepoxy -lfontconfig
-  LINK_LIBRARIES = -Wl,-rpath,/home/egor/Documents/flutter/interest/mobile/interest/linux/flutter/ephemeral:  ../../../flutter/ephemeral/libflutter_linux_gtk.so  /snap/flutter/current/usr/lib/x86_64-linux-gnu/libgtk-3.so  /snap/flutter/current/usr/lib/x86_64-linux-gnu/libgdk-3.so  /snap/flutter/current/usr/lib/x86_64-linux-gnu/libpangocairo-1.0.so  /snap/flutter/current/usr/lib/x86_64-linux-gnu/libpango-1.0.so  /snap/flutter/current/usr/lib/x86_64-linux-gnu/libharfbuzz.so  /snap/flutter/current/usr/lib/x86_64-linux-gnu/libatk-1.0.so  /snap/flutter/current/usr/lib/x86_64-linux-gnu/libcairo-gobject.so  /snap/flutter/current/usr/lib/x86_64-linux-gnu/libcairo.so  /snap/flutter/current/usr/lib/x86_64-linux-gnu/libgdk_pixbuf-2.0.so  /snap/flutter/current/usr/lib/x86_64-linux-gnu/libgio-2.0.so  /snap/flutter/current/usr/lib/x86_64-linux-gnu/libgobject-2.0.so  /snap/flutter/current/usr/lib/x86_64-linux-gnu/libglib-2.0.so
+  LINK_LIBRARIES = -Wl,-rpath,/home/egor/Documents/flutter/interest/mobile/interest/linux/linux/x64/debug/plugins/gtk:/home/egor/Documents/flutter/interest/mobile/interest/linux/linux/x64/debug/plugins/url_launcher_linux:/home/egor/Documents/flutter/interest/mobile/interest/linux/flutter/ephemeral:  plugins/gtk/libgtk_plugin.so  plugins/url_launcher_linux/liburl_launcher_linux_plugin.so  ../../../flutter/ephemeral/libflutter_linux_gtk.so  /snap/flutter/current/usr/lib/x86_64-linux-gnu/libgtk-3.so  /snap/flutter/current/usr/lib/x86_64-linux-gnu/libgdk-3.so  /snap/flutter/current/usr/lib/x86_64-linux-gnu/libpangocairo-1.0.so  /snap/flutter/current/usr/lib/x86_64-linux-gnu/libpango-1.0.so  /snap/flutter/current/usr/lib/x86_64-linux-gnu/libharfbuzz.so  /snap/flutter/current/usr/lib/x86_64-linux-gnu/libatk-1.0.so  /snap/flutter/current/usr/lib/x86_64-linux-gnu/libcairo-gobject.so  /snap/flutter/current/usr/lib/x86_64-linux-gnu/libcairo.so  /snap/flutter/current/usr/lib/x86_64-linux-gnu/libgdk_pixbuf-2.0.so  /snap/flutter/current/usr/lib/x86_64-linux-gnu/libgio-2.0.so  /snap/flutter/current/usr/lib/x86_64-linux-gnu/libgobject-2.0.so  /snap/flutter/current/usr/lib/x86_64-linux-gnu/libglib-2.0.so
   OBJECT_DIR = runner/CMakeFiles/interest.dir
   POST_BUILD = :
   PRE_LINK = :
@@ -307,11 +307,241 @@ build intermediates_do_not_run/interest: CXX_EXECUTABLE_LINKER__interest runner/
   TARGET_PDB = interest.dbg
 
 # =============================================================================
+# Write statements declared in CMakeLists.txt:
+# /home/egor/Documents/flutter/interest/mobile/interest/linux/flutter/generated_plugins.cmake
+# =============================================================================
+
+
+#############################################
+# Utility command for install/local
+
+build plugins/gtk/CMakeFiles/install/local.util: CUSTOM_COMMAND plugins/gtk/all
+  COMMAND = cd /home/egor/Documents/flutter/interest/mobile/interest/linux/linux/x64/debug/plugins/gtk && /snap/flutter/149/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build plugins/gtk/install/local: phony plugins/gtk/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install
+
+build plugins/gtk/CMakeFiles/install.util: CUSTOM_COMMAND plugins/gtk/all
+  COMMAND = cd /home/egor/Documents/flutter/interest/mobile/interest/linux/linux/x64/debug/plugins/gtk && /snap/flutter/149/usr/bin/cmake -P cmake_install.cmake
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build plugins/gtk/install: phony plugins/gtk/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build plugins/gtk/list_install_components: phony
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build plugins/gtk/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /home/egor/Documents/flutter/interest/mobile/interest/linux/linux/x64/debug/plugins/gtk && /snap/flutter/149/usr/bin/cmake -S/home/egor/Documents/flutter/interest/mobile/interest/linux -B/home/egor/Documents/flutter/interest/mobile/interest/linux/linux/x64/debug
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build plugins/gtk/rebuild_cache: phony plugins/gtk/CMakeFiles/rebuild_cache.util
+
+
+#############################################
+# Utility command for edit_cache
+
+build plugins/gtk/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /home/egor/Documents/flutter/interest/mobile/interest/linux/linux/x64/debug/plugins/gtk && /snap/flutter/149/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build plugins/gtk/edit_cache: phony plugins/gtk/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for install/strip
+
+build plugins/gtk/CMakeFiles/install/strip.util: CUSTOM_COMMAND plugins/gtk/all
+  COMMAND = cd /home/egor/Documents/flutter/interest/mobile/interest/linux/linux/x64/debug/plugins/gtk && /snap/flutter/149/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build plugins/gtk/install/strip: phony plugins/gtk/CMakeFiles/install/strip.util
+
+# =============================================================================
+# Object build statements for SHARED_LIBRARY target gtk_plugin
+
+
+#############################################
+# Order-only phony target for gtk_plugin
+
+build cmake_object_order_depends_target_gtk_plugin: phony || flutter/flutter_assemble
+
+build plugins/gtk/CMakeFiles/gtk_plugin.dir/gtk_plugin.cc.o: CXX_COMPILER__gtk_plugin ../../../flutter/ephemeral/.plugin_symlinks/gtk/linux/gtk_plugin.cc || cmake_object_order_depends_target_gtk_plugin
+  DEFINES = -DFLUTTER_PLUGIN_IMPL -Dgtk_plugin_EXPORTS
+  DEP_FILE = plugins/gtk/CMakeFiles/gtk_plugin.dir/gtk_plugin.cc.o.d
+  FLAGS = -g -fPIC -fvisibility=hidden   -Wall -Werror -pthread
+  INCLUDES = -I../../../flutter/ephemeral -isystem /snap/flutter/current/usr/include/gtk-3.0 -isystem /snap/flutter/current/usr/include/at-spi2-atk/2.0 -isystem /snap/flutter/current/usr/include/at-spi-2.0 -isystem /snap/flutter/current/usr/include/dbus-1.0 -isystem /snap/flutter/current/usr/lib/x86_64-linux-gnu/dbus-1.0/include -isystem /snap/flutter/current/usr/include/gio-unix-2.0 -isystem /snap/flutter/current/usr/include/cairo -isystem /snap/flutter/current/usr/include/pango-1.0 -isystem /snap/flutter/current/usr/include/fribidi -isystem /snap/flutter/current/usr/include/harfbuzz -isystem /snap/flutter/current/usr/include/atk-1.0 -isystem /snap/flutter/current/usr/include/pixman-1 -isystem /snap/flutter/current/usr/include/uuid -isystem /snap/flutter/current/usr/include/freetype2 -isystem /snap/flutter/current/usr/include/libpng16 -isystem /snap/flutter/current/usr/include/gdk-pixbuf-2.0 -isystem /snap/flutter/current/usr/include/libmount -isystem /snap/flutter/current/usr/include/blkid -isystem /snap/flutter/current/usr/include/glib-2.0 -isystem /snap/flutter/current/usr/lib/x86_64-linux-gnu/glib-2.0/include
+  OBJECT_DIR = plugins/gtk/CMakeFiles/gtk_plugin.dir
+  OBJECT_FILE_DIR = plugins/gtk/CMakeFiles/gtk_plugin.dir
+
+
+# =============================================================================
+# Link build statements for SHARED_LIBRARY target gtk_plugin
+
+
+#############################################
+# Link the shared library plugins/gtk/libgtk_plugin.so
+
+build plugins/gtk/libgtk_plugin.so: CXX_SHARED_LIBRARY_LINKER__gtk_plugin plugins/gtk/CMakeFiles/gtk_plugin.dir/gtk_plugin.cc.o | ../../../flutter/ephemeral/libflutter_linux_gtk.so /snap/flutter/current/usr/lib/x86_64-linux-gnu/libgtk-3.so /snap/flutter/current/usr/lib/x86_64-linux-gnu/libgdk-3.so /snap/flutter/current/usr/lib/x86_64-linux-gnu/libpangocairo-1.0.so /snap/flutter/current/usr/lib/x86_64-linux-gnu/libpango-1.0.so /snap/flutter/current/usr/lib/x86_64-linux-gnu/libharfbuzz.so /snap/flutter/current/usr/lib/x86_64-linux-gnu/libatk-1.0.so /snap/flutter/current/usr/lib/x86_64-linux-gnu/libcairo-gobject.so /snap/flutter/current/usr/lib/x86_64-linux-gnu/libcairo.so /snap/flutter/current/usr/lib/x86_64-linux-gnu/libgdk_pixbuf-2.0.so /snap/flutter/current/usr/lib/x86_64-linux-gnu/libgio-2.0.so /snap/flutter/current/usr/lib/x86_64-linux-gnu/libgobject-2.0.so /snap/flutter/current/usr/lib/x86_64-linux-gnu/libglib-2.0.so || flutter/flutter_assemble
+  LANGUAGE_COMPILE_FLAGS = -g
+  LINK_FLAGS = -B/snap/flutter/current/usr/lib/gcc/x86_64-linux-gnu/9 -B/snap/flutter/current/usr/lib/x86_64-linux-gnu -B/snap/flutter/current/lib/x86_64-linux-gnu -B/snap/flutter/current/usr/lib/ -L/snap/flutter/current/usr/lib/gcc/x86_64-linux-gnu/9 -L/snap/flutter/current/usr/lib/x86_64-linux-gnu -L/snap/flutter/current/lib/x86_64-linux-gnu -L/snap/flutter/current/usr/lib/ -lblkid -lgcrypt -llzma -llz4 -lgpg-error -luuid -lpthread -ldl -lepoxy -lfontconfig -B/snap/flutter/current/usr/lib/gcc/x86_64-linux-gnu/9 -B/snap/flutter/current/usr/lib/x86_64-linux-gnu -B/snap/flutter/current/lib/x86_64-linux-gnu -B/snap/flutter/current/usr/lib/ -L/snap/flutter/current/usr/lib/gcc/x86_64-linux-gnu/9 -L/snap/flutter/current/usr/lib/x86_64-linux-gnu -L/snap/flutter/current/lib/x86_64-linux-gnu -L/snap/flutter/current/usr/lib/ -lblkid -lgcrypt -llzma -llz4 -lgpg-error -luuid -lpthread -ldl -lepoxy -lfontconfig
+  LINK_LIBRARIES = -Wl,-rpath,/home/egor/Documents/flutter/interest/mobile/interest/linux/flutter/ephemeral  ../../../flutter/ephemeral/libflutter_linux_gtk.so  /snap/flutter/current/usr/lib/x86_64-linux-gnu/libgtk-3.so  /snap/flutter/current/usr/lib/x86_64-linux-gnu/libgdk-3.so  /snap/flutter/current/usr/lib/x86_64-linux-gnu/libpangocairo-1.0.so  /snap/flutter/current/usr/lib/x86_64-linux-gnu/libpango-1.0.so  /snap/flutter/current/usr/lib/x86_64-linux-gnu/libharfbuzz.so  /snap/flutter/current/usr/lib/x86_64-linux-gnu/libatk-1.0.so  /snap/flutter/current/usr/lib/x86_64-linux-gnu/libcairo-gobject.so  /snap/flutter/current/usr/lib/x86_64-linux-gnu/libcairo.so  /snap/flutter/current/usr/lib/x86_64-linux-gnu/libgdk_pixbuf-2.0.so  /snap/flutter/current/usr/lib/x86_64-linux-gnu/libgio-2.0.so  /snap/flutter/current/usr/lib/x86_64-linux-gnu/libgobject-2.0.so  /snap/flutter/current/usr/lib/x86_64-linux-gnu/libglib-2.0.so
+  OBJECT_DIR = plugins/gtk/CMakeFiles/gtk_plugin.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  SONAME = libgtk_plugin.so
+  SONAME_FLAG = -Wl,-soname,
+  TARGET_FILE = plugins/gtk/libgtk_plugin.so
+  TARGET_PDB = gtk_plugin.so.dbg
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# /home/egor/Documents/flutter/interest/mobile/interest/linux/flutter/generated_plugins.cmake
+# =============================================================================
+
+
+#############################################
+# Utility command for install/strip
+
+build plugins/url_launcher_linux/CMakeFiles/install/strip.util: CUSTOM_COMMAND plugins/url_launcher_linux/all
+  COMMAND = cd /home/egor/Documents/flutter/interest/mobile/interest/linux/linux/x64/debug/plugins/url_launcher_linux && /snap/flutter/149/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build plugins/url_launcher_linux/install/strip: phony plugins/url_launcher_linux/CMakeFiles/install/strip.util
+
+
+#############################################
+# Utility command for install/local
+
+build plugins/url_launcher_linux/CMakeFiles/install/local.util: CUSTOM_COMMAND plugins/url_launcher_linux/all
+  COMMAND = cd /home/egor/Documents/flutter/interest/mobile/interest/linux/linux/x64/debug/plugins/url_launcher_linux && /snap/flutter/149/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build plugins/url_launcher_linux/install/local: phony plugins/url_launcher_linux/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install
+
+build plugins/url_launcher_linux/CMakeFiles/install.util: CUSTOM_COMMAND plugins/url_launcher_linux/all
+  COMMAND = cd /home/egor/Documents/flutter/interest/mobile/interest/linux/linux/x64/debug/plugins/url_launcher_linux && /snap/flutter/149/usr/bin/cmake -P cmake_install.cmake
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build plugins/url_launcher_linux/install: phony plugins/url_launcher_linux/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build plugins/url_launcher_linux/list_install_components: phony
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build plugins/url_launcher_linux/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /home/egor/Documents/flutter/interest/mobile/interest/linux/linux/x64/debug/plugins/url_launcher_linux && /snap/flutter/149/usr/bin/cmake -S/home/egor/Documents/flutter/interest/mobile/interest/linux -B/home/egor/Documents/flutter/interest/mobile/interest/linux/linux/x64/debug
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build plugins/url_launcher_linux/rebuild_cache: phony plugins/url_launcher_linux/CMakeFiles/rebuild_cache.util
+
+
+#############################################
+# Utility command for edit_cache
+
+build plugins/url_launcher_linux/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /home/egor/Documents/flutter/interest/mobile/interest/linux/linux/x64/debug/plugins/url_launcher_linux && /snap/flutter/149/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build plugins/url_launcher_linux/edit_cache: phony plugins/url_launcher_linux/CMakeFiles/edit_cache.util
+
+# =============================================================================
+# Object build statements for SHARED_LIBRARY target url_launcher_linux_plugin
+
+
+#############################################
+# Order-only phony target for url_launcher_linux_plugin
+
+build cmake_object_order_depends_target_url_launcher_linux_plugin: phony || flutter/flutter_assemble
+
+build plugins/url_launcher_linux/CMakeFiles/url_launcher_linux_plugin.dir/messages.g.cc.o: CXX_COMPILER__url_launcher_linux_plugin ../../../flutter/ephemeral/.plugin_symlinks/url_launcher_linux/linux/messages.g.cc || cmake_object_order_depends_target_url_launcher_linux_plugin
+  DEFINES = -DFLUTTER_PLUGIN_IMPL -Durl_launcher_linux_plugin_EXPORTS
+  DEP_FILE = plugins/url_launcher_linux/CMakeFiles/url_launcher_linux_plugin.dir/messages.g.cc.o.d
+  FLAGS = -g -fPIC -fvisibility=hidden   -Wall -Werror -pthread
+  INCLUDES = -I../../../flutter/ephemeral -isystem /snap/flutter/current/usr/include/gtk-3.0 -isystem /snap/flutter/current/usr/include/at-spi2-atk/2.0 -isystem /snap/flutter/current/usr/include/at-spi-2.0 -isystem /snap/flutter/current/usr/include/dbus-1.0 -isystem /snap/flutter/current/usr/lib/x86_64-linux-gnu/dbus-1.0/include -isystem /snap/flutter/current/usr/include/gio-unix-2.0 -isystem /snap/flutter/current/usr/include/cairo -isystem /snap/flutter/current/usr/include/pango-1.0 -isystem /snap/flutter/current/usr/include/fribidi -isystem /snap/flutter/current/usr/include/harfbuzz -isystem /snap/flutter/current/usr/include/atk-1.0 -isystem /snap/flutter/current/usr/include/pixman-1 -isystem /snap/flutter/current/usr/include/uuid -isystem /snap/flutter/current/usr/include/freetype2 -isystem /snap/flutter/current/usr/include/libpng16 -isystem /snap/flutter/current/usr/include/gdk-pixbuf-2.0 -isystem /snap/flutter/current/usr/include/libmount -isystem /snap/flutter/current/usr/include/blkid -isystem /snap/flutter/current/usr/include/glib-2.0 -isystem /snap/flutter/current/usr/lib/x86_64-linux-gnu/glib-2.0/include
+  OBJECT_DIR = plugins/url_launcher_linux/CMakeFiles/url_launcher_linux_plugin.dir
+  OBJECT_FILE_DIR = plugins/url_launcher_linux/CMakeFiles/url_launcher_linux_plugin.dir
+
+build plugins/url_launcher_linux/CMakeFiles/url_launcher_linux_plugin.dir/url_launcher_plugin.cc.o: CXX_COMPILER__url_launcher_linux_plugin ../../../flutter/ephemeral/.plugin_symlinks/url_launcher_linux/linux/url_launcher_plugin.cc || cmake_object_order_depends_target_url_launcher_linux_plugin
+  DEFINES = -DFLUTTER_PLUGIN_IMPL -Durl_launcher_linux_plugin_EXPORTS
+  DEP_FILE = plugins/url_launcher_linux/CMakeFiles/url_launcher_linux_plugin.dir/url_launcher_plugin.cc.o.d
+  FLAGS = -g -fPIC -fvisibility=hidden   -Wall -Werror -pthread
+  INCLUDES = -I../../../flutter/ephemeral -isystem /snap/flutter/current/usr/include/gtk-3.0 -isystem /snap/flutter/current/usr/include/at-spi2-atk/2.0 -isystem /snap/flutter/current/usr/include/at-spi-2.0 -isystem /snap/flutter/current/usr/include/dbus-1.0 -isystem /snap/flutter/current/usr/lib/x86_64-linux-gnu/dbus-1.0/include -isystem /snap/flutter/current/usr/include/gio-unix-2.0 -isystem /snap/flutter/current/usr/include/cairo -isystem /snap/flutter/current/usr/include/pango-1.0 -isystem /snap/flutter/current/usr/include/fribidi -isystem /snap/flutter/current/usr/include/harfbuzz -isystem /snap/flutter/current/usr/include/atk-1.0 -isystem /snap/flutter/current/usr/include/pixman-1 -isystem /snap/flutter/current/usr/include/uuid -isystem /snap/flutter/current/usr/include/freetype2 -isystem /snap/flutter/current/usr/include/libpng16 -isystem /snap/flutter/current/usr/include/gdk-pixbuf-2.0 -isystem /snap/flutter/current/usr/include/libmount -isystem /snap/flutter/current/usr/include/blkid -isystem /snap/flutter/current/usr/include/glib-2.0 -isystem /snap/flutter/current/usr/lib/x86_64-linux-gnu/glib-2.0/include
+  OBJECT_DIR = plugins/url_launcher_linux/CMakeFiles/url_launcher_linux_plugin.dir
+  OBJECT_FILE_DIR = plugins/url_launcher_linux/CMakeFiles/url_launcher_linux_plugin.dir
+
+
+# =============================================================================
+# Link build statements for SHARED_LIBRARY target url_launcher_linux_plugin
+
+
+#############################################
+# Link the shared library plugins/url_launcher_linux/liburl_launcher_linux_plugin.so
+
+build plugins/url_launcher_linux/liburl_launcher_linux_plugin.so: CXX_SHARED_LIBRARY_LINKER__url_launcher_linux_plugin plugins/url_launcher_linux/CMakeFiles/url_launcher_linux_plugin.dir/messages.g.cc.o plugins/url_launcher_linux/CMakeFiles/url_launcher_linux_plugin.dir/url_launcher_plugin.cc.o | ../../../flutter/ephemeral/libflutter_linux_gtk.so /snap/flutter/current/usr/lib/x86_64-linux-gnu/libgtk-3.so /snap/flutter/current/usr/lib/x86_64-linux-gnu/libgdk-3.so /snap/flutter/current/usr/lib/x86_64-linux-gnu/libpangocairo-1.0.so /snap/flutter/current/usr/lib/x86_64-linux-gnu/libpango-1.0.so /snap/flutter/current/usr/lib/x86_64-linux-gnu/libharfbuzz.so /snap/flutter/current/usr/lib/x86_64-linux-gnu/libatk-1.0.so /snap/flutter/current/usr/lib/x86_64-linux-gnu/libcairo-gobject.so /snap/flutter/current/usr/lib/x86_64-linux-gnu/libcairo.so /snap/flutter/current/usr/lib/x86_64-linux-gnu/libgdk_pixbuf-2.0.so /snap/flutter/current/usr/lib/x86_64-linux-gnu/libgio-2.0.so /snap/flutter/current/usr/lib/x86_64-linux-gnu/libgobject-2.0.so /snap/flutter/current/usr/lib/x86_64-linux-gnu/libglib-2.0.so || flutter/flutter_assemble
+  LANGUAGE_COMPILE_FLAGS = -g
+  LINK_FLAGS = -B/snap/flutter/current/usr/lib/gcc/x86_64-linux-gnu/9 -B/snap/flutter/current/usr/lib/x86_64-linux-gnu -B/snap/flutter/current/lib/x86_64-linux-gnu -B/snap/flutter/current/usr/lib/ -L/snap/flutter/current/usr/lib/gcc/x86_64-linux-gnu/9 -L/snap/flutter/current/usr/lib/x86_64-linux-gnu -L/snap/flutter/current/lib/x86_64-linux-gnu -L/snap/flutter/current/usr/lib/ -lblkid -lgcrypt -llzma -llz4 -lgpg-error -luuid -lpthread -ldl -lepoxy -lfontconfig -B/snap/flutter/current/usr/lib/gcc/x86_64-linux-gnu/9 -B/snap/flutter/current/usr/lib/x86_64-linux-gnu -B/snap/flutter/current/lib/x86_64-linux-gnu -B/snap/flutter/current/usr/lib/ -L/snap/flutter/current/usr/lib/gcc/x86_64-linux-gnu/9 -L/snap/flutter/current/usr/lib/x86_64-linux-gnu -L/snap/flutter/current/lib/x86_64-linux-gnu -L/snap/flutter/current/usr/lib/ -lblkid -lgcrypt -llzma -llz4 -lgpg-error -luuid -lpthread -ldl -lepoxy -lfontconfig
+  LINK_LIBRARIES = -Wl,-rpath,/home/egor/Documents/flutter/interest/mobile/interest/linux/flutter/ephemeral  ../../../flutter/ephemeral/libflutter_linux_gtk.so  /snap/flutter/current/usr/lib/x86_64-linux-gnu/libgtk-3.so  /snap/flutter/current/usr/lib/x86_64-linux-gnu/libgdk-3.so  /snap/flutter/current/usr/lib/x86_64-linux-gnu/libpangocairo-1.0.so  /snap/flutter/current/usr/lib/x86_64-linux-gnu/libpango-1.0.so  /snap/flutter/current/usr/lib/x86_64-linux-gnu/libharfbuzz.so  /snap/flutter/current/usr/lib/x86_64-linux-gnu/libatk-1.0.so  /snap/flutter/current/usr/lib/x86_64-linux-gnu/libcairo-gobject.so  /snap/flutter/current/usr/lib/x86_64-linux-gnu/libcairo.so  /snap/flutter/current/usr/lib/x86_64-linux-gnu/libgdk_pixbuf-2.0.so  /snap/flutter/current/usr/lib/x86_64-linux-gnu/libgio-2.0.so  /snap/flutter/current/usr/lib/x86_64-linux-gnu/libgobject-2.0.so  /snap/flutter/current/usr/lib/x86_64-linux-gnu/libglib-2.0.so
+  OBJECT_DIR = plugins/url_launcher_linux/CMakeFiles/url_launcher_linux_plugin.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  SONAME = liburl_launcher_linux_plugin.so
+  SONAME_FLAG = -Wl,-soname,
+  TARGET_FILE = plugins/url_launcher_linux/liburl_launcher_linux_plugin.so
+  TARGET_PDB = url_launcher_linux_plugin.so.dbg
+
+# =============================================================================
 # Target aliases.
 
 build flutter_assemble: phony flutter/flutter_assemble
 
+build gtk_plugin: phony plugins/gtk/libgtk_plugin.so
+
 build interest: phony intermediates_do_not_run/interest
+
+build libgtk_plugin.so: phony plugins/gtk/libgtk_plugin.so
+
+build liburl_launcher_linux_plugin.so: phony plugins/url_launcher_linux/liburl_launcher_linux_plugin.so
+
+build url_launcher_linux_plugin: phony plugins/url_launcher_linux/liburl_launcher_linux_plugin.so
 
 # =============================================================================
 # Folder targets.
@@ -321,7 +551,7 @@ build interest: phony intermediates_do_not_run/interest
 #############################################
 # Folder: /home/egor/Documents/flutter/interest/mobile/interest/linux/linux/x64/debug
 
-build all: phony flutter/all runner/all
+build all: phony flutter/all runner/all plugins/gtk/all plugins/url_launcher_linux/all
 
 # =============================================================================
 
@@ -329,6 +559,20 @@ build all: phony flutter/all runner/all
 # Folder: /home/egor/Documents/flutter/interest/mobile/interest/linux/linux/x64/debug/flutter
 
 build flutter/all: phony
+
+# =============================================================================
+
+#############################################
+# Folder: /home/egor/Documents/flutter/interest/mobile/interest/linux/linux/x64/debug/plugins/gtk
+
+build plugins/gtk/all: phony plugins/gtk/libgtk_plugin.so
+
+# =============================================================================
+
+#############################################
+# Folder: /home/egor/Documents/flutter/interest/mobile/interest/linux/linux/x64/debug/plugins/url_launcher_linux
+
+build plugins/url_launcher_linux/all: phony plugins/url_launcher_linux/liburl_launcher_linux_plugin.so
 
 # =============================================================================
 
@@ -349,14 +593,14 @@ default all
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | ../../../CMakeLists.txt ../../../flutter/CMakeLists.txt ../../../flutter/ephemeral/generated_config.cmake ../../../flutter/generated_plugins.cmake ../../../runner/CMakeLists.txt /snap/flutter/149/usr/share/cmake-3.16/Modules/CMakeCXXInformation.cmake /snap/flutter/149/usr/share/cmake-3.16/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake /snap/flutter/149/usr/share/cmake-3.16/Modules/CMakeCommonLanguageInclude.cmake /snap/flutter/149/usr/share/cmake-3.16/Modules/CMakeGenericSystem.cmake /snap/flutter/149/usr/share/cmake-3.16/Modules/CMakeInitializeConfigs.cmake /snap/flutter/149/usr/share/cmake-3.16/Modules/CMakeLanguageInformation.cmake /snap/flutter/149/usr/share/cmake-3.16/Modules/CMakeSystemSpecificInformation.cmake /snap/flutter/149/usr/share/cmake-3.16/Modules/CMakeSystemSpecificInitialize.cmake /snap/flutter/149/usr/share/cmake-3.16/Modules/Compiler/CMakeCommonCompilerMacros.cmake /snap/flutter/149/usr/share/cmake-3.16/Modules/Compiler/Clang-CXX.cmake /snap/flutter/149/usr/share/cmake-3.16/Modules/Compiler/Clang.cmake /snap/flutter/149/usr/share/cmake-3.16/Modules/Compiler/GNU.cmake /snap/flutter/149/usr/share/cmake-3.16/Modules/FindPackageHandleStandardArgs.cmake /snap/flutter/149/usr/share/cmake-3.16/Modules/FindPackageMessage.cmake /snap/flutter/149/usr/share/cmake-3.16/Modules/FindPkgConfig.cmake /snap/flutter/149/usr/share/cmake-3.16/Modules/Internal/CMakeCheckCompilerFlag.cmake /snap/flutter/149/usr/share/cmake-3.16/Modules/Platform/Linux-Clang-CXX.cmake /snap/flutter/149/usr/share/cmake-3.16/Modules/Platform/Linux-GNU-CXX.cmake /snap/flutter/149/usr/share/cmake-3.16/Modules/Platform/Linux-GNU.cmake /snap/flutter/149/usr/share/cmake-3.16/Modules/Platform/Linux.cmake /snap/flutter/149/usr/share/cmake-3.16/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.16.3/CMakeCXXCompiler.cmake CMakeFiles/3.16.3/CMakeSystem.cmake
+build build.ninja: RERUN_CMAKE | ../../../CMakeLists.txt ../../../flutter/CMakeLists.txt ../../../flutter/ephemeral/.plugin_symlinks/gtk/linux/CMakeLists.txt ../../../flutter/ephemeral/.plugin_symlinks/url_launcher_linux/linux/CMakeLists.txt ../../../flutter/ephemeral/generated_config.cmake ../../../flutter/generated_plugins.cmake ../../../runner/CMakeLists.txt /snap/flutter/149/usr/share/cmake-3.16/Modules/CMakeCXXInformation.cmake /snap/flutter/149/usr/share/cmake-3.16/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake /snap/flutter/149/usr/share/cmake-3.16/Modules/CMakeCommonLanguageInclude.cmake /snap/flutter/149/usr/share/cmake-3.16/Modules/CMakeGenericSystem.cmake /snap/flutter/149/usr/share/cmake-3.16/Modules/CMakeInitializeConfigs.cmake /snap/flutter/149/usr/share/cmake-3.16/Modules/CMakeLanguageInformation.cmake /snap/flutter/149/usr/share/cmake-3.16/Modules/CMakeSystemSpecificInformation.cmake /snap/flutter/149/usr/share/cmake-3.16/Modules/CMakeSystemSpecificInitialize.cmake /snap/flutter/149/usr/share/cmake-3.16/Modules/Compiler/CMakeCommonCompilerMacros.cmake /snap/flutter/149/usr/share/cmake-3.16/Modules/Compiler/Clang-CXX.cmake /snap/flutter/149/usr/share/cmake-3.16/Modules/Compiler/Clang.cmake /snap/flutter/149/usr/share/cmake-3.16/Modules/Compiler/GNU.cmake /snap/flutter/149/usr/share/cmake-3.16/Modules/FindPackageHandleStandardArgs.cmake /snap/flutter/149/usr/share/cmake-3.16/Modules/FindPackageMessage.cmake /snap/flutter/149/usr/share/cmake-3.16/Modules/FindPkgConfig.cmake /snap/flutter/149/usr/share/cmake-3.16/Modules/Internal/CMakeCheckCompilerFlag.cmake /snap/flutter/149/usr/share/cmake-3.16/Modules/Platform/Linux-Clang-CXX.cmake /snap/flutter/149/usr/share/cmake-3.16/Modules/Platform/Linux-GNU-CXX.cmake /snap/flutter/149/usr/share/cmake-3.16/Modules/Platform/Linux-GNU.cmake /snap/flutter/149/usr/share/cmake-3.16/Modules/Platform/Linux.cmake /snap/flutter/149/usr/share/cmake-3.16/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.16.3/CMakeCXXCompiler.cmake CMakeFiles/3.16.3/CMakeSystem.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build ../../../CMakeLists.txt ../../../flutter/CMakeLists.txt ../../../flutter/ephemeral/generated_config.cmake ../../../flutter/generated_plugins.cmake ../../../runner/CMakeLists.txt /snap/flutter/149/usr/share/cmake-3.16/Modules/CMakeCXXInformation.cmake /snap/flutter/149/usr/share/cmake-3.16/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake /snap/flutter/149/usr/share/cmake-3.16/Modules/CMakeCommonLanguageInclude.cmake /snap/flutter/149/usr/share/cmake-3.16/Modules/CMakeGenericSystem.cmake /snap/flutter/149/usr/share/cmake-3.16/Modules/CMakeInitializeConfigs.cmake /snap/flutter/149/usr/share/cmake-3.16/Modules/CMakeLanguageInformation.cmake /snap/flutter/149/usr/share/cmake-3.16/Modules/CMakeSystemSpecificInformation.cmake /snap/flutter/149/usr/share/cmake-3.16/Modules/CMakeSystemSpecificInitialize.cmake /snap/flutter/149/usr/share/cmake-3.16/Modules/Compiler/CMakeCommonCompilerMacros.cmake /snap/flutter/149/usr/share/cmake-3.16/Modules/Compiler/Clang-CXX.cmake /snap/flutter/149/usr/share/cmake-3.16/Modules/Compiler/Clang.cmake /snap/flutter/149/usr/share/cmake-3.16/Modules/Compiler/GNU.cmake /snap/flutter/149/usr/share/cmake-3.16/Modules/FindPackageHandleStandardArgs.cmake /snap/flutter/149/usr/share/cmake-3.16/Modules/FindPackageMessage.cmake /snap/flutter/149/usr/share/cmake-3.16/Modules/FindPkgConfig.cmake /snap/flutter/149/usr/share/cmake-3.16/Modules/Internal/CMakeCheckCompilerFlag.cmake /snap/flutter/149/usr/share/cmake-3.16/Modules/Platform/Linux-Clang-CXX.cmake /snap/flutter/149/usr/share/cmake-3.16/Modules/Platform/Linux-GNU-CXX.cmake /snap/flutter/149/usr/share/cmake-3.16/Modules/Platform/Linux-GNU.cmake /snap/flutter/149/usr/share/cmake-3.16/Modules/Platform/Linux.cmake /snap/flutter/149/usr/share/cmake-3.16/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.16.3/CMakeCXXCompiler.cmake CMakeFiles/3.16.3/CMakeSystem.cmake: phony
+build ../../../CMakeLists.txt ../../../flutter/CMakeLists.txt ../../../flutter/ephemeral/.plugin_symlinks/gtk/linux/CMakeLists.txt ../../../flutter/ephemeral/.plugin_symlinks/url_launcher_linux/linux/CMakeLists.txt ../../../flutter/ephemeral/generated_config.cmake ../../../flutter/generated_plugins.cmake ../../../runner/CMakeLists.txt /snap/flutter/149/usr/share/cmake-3.16/Modules/CMakeCXXInformation.cmake /snap/flutter/149/usr/share/cmake-3.16/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake /snap/flutter/149/usr/share/cmake-3.16/Modules/CMakeCommonLanguageInclude.cmake /snap/flutter/149/usr/share/cmake-3.16/Modules/CMakeGenericSystem.cmake /snap/flutter/149/usr/share/cmake-3.16/Modules/CMakeInitializeConfigs.cmake /snap/flutter/149/usr/share/cmake-3.16/Modules/CMakeLanguageInformation.cmake /snap/flutter/149/usr/share/cmake-3.16/Modules/CMakeSystemSpecificInformation.cmake /snap/flutter/149/usr/share/cmake-3.16/Modules/CMakeSystemSpecificInitialize.cmake /snap/flutter/149/usr/share/cmake-3.16/Modules/Compiler/CMakeCommonCompilerMacros.cmake /snap/flutter/149/usr/share/cmake-3.16/Modules/Compiler/Clang-CXX.cmake /snap/flutter/149/usr/share/cmake-3.16/Modules/Compiler/Clang.cmake /snap/flutter/149/usr/share/cmake-3.16/Modules/Compiler/GNU.cmake /snap/flutter/149/usr/share/cmake-3.16/Modules/FindPackageHandleStandardArgs.cmake /snap/flutter/149/usr/share/cmake-3.16/Modules/FindPackageMessage.cmake /snap/flutter/149/usr/share/cmake-3.16/Modules/FindPkgConfig.cmake /snap/flutter/149/usr/share/cmake-3.16/Modules/Internal/CMakeCheckCompilerFlag.cmake /snap/flutter/149/usr/share/cmake-3.16/Modules/Platform/Linux-Clang-CXX.cmake /snap/flutter/149/usr/share/cmake-3.16/Modules/Platform/Linux-GNU-CXX.cmake /snap/flutter/149/usr/share/cmake-3.16/Modules/Platform/Linux-GNU.cmake /snap/flutter/149/usr/share/cmake-3.16/Modules/Platform/Linux.cmake /snap/flutter/149/usr/share/cmake-3.16/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.16.3/CMakeCXXCompiler.cmake CMakeFiles/3.16.3/CMakeSystem.cmake: phony
 
 
 #############################################
