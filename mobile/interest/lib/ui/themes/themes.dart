@@ -6,29 +6,27 @@ const Color _primaryColor = Colors.blue;
 
 ThemeData get lightTheme => ThemeData(
   primaryColor: _primaryColor,
-  scaffoldBackgroundColor: Colors.white,
+  //scaffoldBackgroundColor: Colors.white,
   useMaterial3: true,
   colorScheme: ColorScheme.light(
-    primary: Colors.blue,
+    primary: _primaryColor,
     secondary: Colors.blueAccent,
-    onSecondary: Colors.white,
-    surface: Colors.lightBlue.shade200,
-    onSurface: Colors.black, 
-    brightness: Brightness.light, 
-  )
+    surface: Colors.white, // Фон компонентов
+    onSurface: Colors.black, // Цвет текста/иконок на surface
+    background: Colors.white, // Фон Scaffold
+  ),
 );
 
 ThemeData get darkTheme => ThemeData(
   primaryColor: _primaryColor,
-  scaffoldBackgroundColor: Color(0xFF353535), 
+  //scaffoldBackgroundColor: Color(0xFF353535), 
   useMaterial3: true,
   colorScheme: ColorScheme.dark(
-    primary: Colors.blue,
+    primary: _primaryColor,
     secondary: Colors.blueAccent,
-    onSecondary: Colors.black,
-    brightness: Brightness.dark,
-    surface: Colors.black,
+    surface: const Color(0xFF353535),
     onSurface: Colors.white,
+    background: const Color(0xFF353535),
   ),
 );
 

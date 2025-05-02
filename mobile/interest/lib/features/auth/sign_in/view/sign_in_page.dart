@@ -4,10 +4,9 @@ import 'package:interest/features/auth/widgets/language_selected_button.dart';
 import 'package:interest/ui/components/platform/platform.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
-
 import '../../../../services/supabase/auth_service.dart';
 import '../../../home/view/home_page.dart';
-import '../../sign_up/view/sign_up_page.dart';
+import '../../sign_up/sign_up.dart';
 
 ///<summary>
 ///Экран регистрации
@@ -29,7 +28,7 @@ class _SignUpPageState extends State<SignInPage> {
 
   bool _isObscure = true;
 
-  void _login() async {
+  void _login(BuildContext context) async {
     final email = _emailController.text.trim();
     final password = _passwordController.text.trim();
 
@@ -85,7 +84,7 @@ class _SignUpPageState extends State<SignInPage> {
     final theme = Theme.of(context);
 
     return Scaffold(
-      backgroundColor: theme.scaffoldBackgroundColor,
+      backgroundColor: theme.colorScheme.surface,
       appBar: PlatformAppBar(
         title: '', 
         child: LanguageSelectedButton()
@@ -129,7 +128,7 @@ class _SignUpPageState extends State<SignInPage> {
                 const SizedBox(height: 32.0),
                 PlatformButton(
                   text: AppLocalizations.of(context)!.logIn, 
-                  onTap: () => _login()
+                  onTap: () => _login(context)
                 ),
                 const SizedBox(height: 50.0),
                 Row(

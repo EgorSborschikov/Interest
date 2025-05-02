@@ -18,5 +18,9 @@
     "dontHaveAccount" : "Ещё нет аккаунта?",
     "error" : "Ошибка!",
     "unknownError" : "Процесс завершился с неизвестной ошибкой.",
-    "emptyFieldsError" : "Поля не должны быть пустыми!"
+    "emptyFieldsError" : "Поля не должны быть пустыми!",
+    "recommended" : "Рекомендации",
+    "search" : "Поиск",
+    "chats" : "Чаты",
+    "settings" : "Настройки" 
 }

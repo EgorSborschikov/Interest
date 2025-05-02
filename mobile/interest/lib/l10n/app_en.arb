@@ -18,5 +18,9 @@
     "dontHaveAccount" : "Don`t have an account yet?",
     "error" : "Error!",
     "unknownError" : "Process failed. Unknown error",
-    "emptyFieldsError" : "Email and password cannot be empty"
+    "emptyFieldsError" : "Email and password cannot be empty",
+    "recommended" : "Recommended",
+    "search" : "Search",
+    "chats" : "Chats",
+    "settings" : "Settings" 
 }

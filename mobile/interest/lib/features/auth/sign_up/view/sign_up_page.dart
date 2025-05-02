@@ -1,12 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:interest/features/auth/sign_in/view/sign_in_page.dart';
 import 'package:interest/features/auth/widgets/language_selected_button.dart';
 import 'package:interest/ui/components/platform/platform.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-
 import '../../../../services/supabase/auth_service.dart';
 import '../../../home/view/home_page.dart';
+import '../../sign_in/sign_in.dart';
 
 ///<summary>
 ///Экран регистрации
@@ -89,7 +88,7 @@ class _SignUpPageState extends State<SignUpPage> {
     final theme = Theme.of(context);
 
     return Scaffold(
-      backgroundColor: theme.scaffoldBackgroundColor,
+      backgroundColor: theme.colorScheme.surface,
       appBar: PlatformAppBar(
         title: '',
         child: LanguageSelectedButton(),
