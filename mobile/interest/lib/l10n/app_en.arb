@@ -1,0 +1,18 @@
+{
+    "@@locale": "en",
+    "signUp" : "Sign Up",
+    "signIn" : "Sign In",
+    "email" : "Email",
+    "password" : "Password",
+    "confirmPassword" : "Confirm password",
+    "requeired" : "Required",
+    "createAccount" : "Create account",
+    "iHaveAnAccount" : "I have an account?",
+    "logIn" : "Sign In",
+    "invalidCreds" : "Invalid Credentails",
+    "tryAgain" : "Try again?",
+    "ok" : "Ok",
+    "cancel" : "Cancel",
+    "accept" : "Accept",
+    "reject" : "Reject"
+}

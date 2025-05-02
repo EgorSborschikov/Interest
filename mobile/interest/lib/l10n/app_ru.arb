@@ -1,0 +1,18 @@
+{
+    "@@locale": "ru",
+    "signUp" : "Регистрация",
+    "signIn" : "Авторизация",
+    "email" : "Email",
+    "password" : "Пароль",
+    "confirmPassword" : "Подверждение пароля",
+    "requeired" : "Обязательно",
+    "createAccount" : "Создать аккаунт",
+    "iHaveAnAccount" : "Уже есть аккаунт?",
+    "logIn" : "Войти",
+    "invalidCreds" : "Неверные аутентификационные данные",
+    "tryAgain" : "Попробовать снова?",
+    "ok" : "Ол",
+    "cancel" : "Закрыть",
+    "accept" : "Принять",
+    "reject" : "Отклонить"
+}

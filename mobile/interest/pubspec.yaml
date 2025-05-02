@@ -1,0 +1,42 @@
+name: interest
+description: "A new Flutter project."
+
+publish_to: 'none' 
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.6.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+  shared_preferences: 2.5.3
+  provider: ^6.0.0
+  device_preview: ^1.2.0
+
+  flutter_localizations:
+    sdk: flutter
+  intl: any
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+    
+
+  flutter_lints: ^5.0.0
+  intl_utils: ^2.0.0
+  build_runner: ^2.3.0
+
+flutter:
+
+  uses-material-design: true
+  generate: true
+
+flutter_intl:
+  enabled: true
+  localization:
+    -path: lib/l10n
+    pattern: "*.arb*"
