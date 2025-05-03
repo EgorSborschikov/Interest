@@ -8,10 +8,10 @@ import 'package:interest/ui/themes/themes.dart';
 
 class PlatformAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
-  final Widget child;
+  final Widget? child;
   final List<Widget>? trailing;
 
-  const PlatformAppBar({super.key, required this.title, required this.child, this.trailing});
+  const PlatformAppBar({super.key, required this.title, this.child, this.trailing});
   
   @override
   Widget build(BuildContext context) {

@@ -12,6 +12,7 @@ class PlatformTextField extends StatelessWidget{
   final TextEditingController controller;
   final bool obscure;
   final Widget? suffixIcon;
+  final FocusNode focusNode;
 
   const PlatformTextField({
       super.key, 
@@ -19,7 +20,7 @@ class PlatformTextField extends StatelessWidget{
       required this.controller, 
       required this.placeholder, 
       required this.obscure, 
-      this.suffixIcon
+      this.suffixIcon, required this.focusNode
     }
   );
   
@@ -30,6 +31,7 @@ class PlatformTextField extends StatelessWidget{
     if (theme.isMaterial){
       return TextField(
         controller: controller,
+        focusNode: focusNode,
         obscureText: obscure,
         decoration: InputDecoration(
           fillColor: Colors.white70,
@@ -58,6 +60,7 @@ class PlatformTextField extends StatelessWidget{
           borderRadius: BorderRadius.circular(8.0),
         ),
         child: CupertinoTextField(
+          focusNode: focusNode,
           prefix: Padding(
             padding: const EdgeInsets.only(left: 12), 
             child: Text(

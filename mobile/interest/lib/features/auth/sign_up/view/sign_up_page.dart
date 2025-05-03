@@ -19,14 +19,17 @@ class SignUpPage extends StatefulWidget{
 }
 
 class _SignUpPageState extends State<SignUpPage> {
+  bool _isObscure = true;
+
+  final authService = AuthService();
+
   // Контроллеры данных
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _passwordConfirmController = TextEditingController();
-
-  final authService = AuthService();
-
-  bool _isObscure = true;
+  final FocusNode _emailFocusNode = FocusNode();
+  final FocusNode _passwordFocusNode = FocusNode();
+  final FocusNode _passwordConfirmFocusNode = FocusNode();
 
   void _register(BuildContext context) async {
     // Получаем значения из контроллеров
@@ -114,7 +117,8 @@ class _SignUpPageState extends State<SignUpPage> {
                   label: AppLocalizations.of(context)!.email,
                   controller: _emailController,
                   placeholder: AppLocalizations.of(context)!.requeired,
-                  obscure: false,
+                  obscure: false, 
+                  focusNode: _emailFocusNode,
                 ),
                 const SizedBox(height: 16.0),
                 PlatformTextField(
@@ -127,7 +131,8 @@ class _SignUpPageState extends State<SignUpPage> {
                     child: Icon(
                       _isObscure ? CupertinoIcons.eye : CupertinoIcons.eye_slash,
                     ),
-                  ),
+                  ), 
+                  focusNode: _passwordFocusNode,
                 ),
                 const SizedBox(height: 16.0),
                 PlatformTextField(
@@ -140,7 +145,8 @@ class _SignUpPageState extends State<SignUpPage> {
                     child: Icon(
                       _isObscure ? CupertinoIcons.eye : CupertinoIcons.eye_slash,
                     ),
-                  ),
+                  ), 
+                  focusNode: _passwordConfirmFocusNode,
                 ),
                 const SizedBox(height: 32.0),
                 PlatformButton(

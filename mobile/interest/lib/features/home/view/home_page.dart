@@ -1,8 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:interest/features/chats/chats.dart';
+import 'package:interest/features/profile/profile.dart';
+import 'package:interest/features/recommended/recommended.dart';
+import 'package:interest/features/search/search.dart';
 import 'package:interest/ui/themes/themes.dart';
-
 import '../../../ui/components/platform/platform.dart';
 
 class HomePage extends StatefulWidget{
@@ -18,10 +21,10 @@ class _HomePageState extends State<HomePage> {
 
   final List<Widget> _pages = [
     //tmp scaffolds
-    Scaffold(),
-    Scaffold(),
-    Scaffold(),
-    Scaffold(),
+    RecommendedPage(),
+    SearchPage(),
+    ChatListPage(),
+    ProfilePage()
   ];
 
   @override
@@ -75,8 +78,8 @@ class _HomePageState extends State<HomePage> {
             label: AppLocalizations.of(context)!.chats
           ),
           BottomNavigationBarItem(
-            icon: theme.isMaterial ? const Icon(CupertinoIcons.gear_alt) : Icon(CupertinoIcons.settings_solid),
-            label: AppLocalizations.of(context)!.settings
+            icon: theme.isMaterial ? const Icon(CupertinoIcons.person) : Icon(CupertinoIcons.person_crop_circle),
+            label: AppLocalizations.of(context)!.profile
           ),
         ], 
         onSelect: _onSelect, 

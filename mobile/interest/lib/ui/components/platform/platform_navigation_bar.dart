@@ -15,6 +15,7 @@ class PlatformNavigationBar extends StatelessWidget{
     
     if (theme.isMaterial){
       return BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
         backgroundColor: theme.colorScheme.surface,
         items: items,
         currentIndex: currentIndex,
