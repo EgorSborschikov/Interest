@@ -4,7 +4,7 @@ import 'package:interest/ui/components/common/additional_options_tile.dart';
 import 'package:interest/ui/components/platform/platform.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:interest/ui/themes/themes.dart';
-
+import 'package:talker_flutter/talker_flutter.dart';
 import '../../settings/settings.dart';
 
 class AdditionalOptionsPage extends StatelessWidget{
@@ -12,7 +12,9 @@ class AdditionalOptionsPage extends StatelessWidget{
   
   @override
   Widget build(BuildContext context) {
+    final talker = TalkerFlutter.init();
     final theme = Theme.of(context);
+
     return Scaffold(
       appBar: PlatformAppBar(
         title: AppLocalizations.of(context)!.otherOptions
@@ -59,7 +61,19 @@ class AdditionalOptionsPage extends StatelessWidget{
               AdditionalOptionsTile(
                 title: AppLocalizations.of(context)!.logs,
                 onTap: () {
-                  
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => TalkerScreen(
+                        talker: talker,
+                        appBarTitle: AppLocalizations.of(context)!.logs,
+                        theme: TalkerScreenTheme(
+                          backgroundColor: theme.colorScheme.surface,
+                          textColor: theme.colorScheme.onSurface,
+                        )
+                      ),
+                    ),
+                  );
                 },
                 child: theme.isMaterial
                     ? Icon(Icons.list_alt_rounded)

@@ -16,6 +16,10 @@ dependencies:
   provider: ^6.0.0
   device_preview: ^1.2.0
   supabase_flutter: 2.9.0
+  logging: ^1.2.0
+  talker: ^4.0.0
+  talker_flutter: ^4.0.0
+  talker_dio_logger: ^4.0.0
 
   flutter_localizations:
     sdk: flutter

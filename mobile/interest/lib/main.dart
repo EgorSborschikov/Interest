@@ -7,6 +7,7 @@ import 'package:interest/utils/config.dart';
 import 'package:provider/provider.dart';
 import 'package:supabase_flutter/supabase_flutter.dart' as Supabase;
 import 'ui/themes/theme_provider.dart';
+import 'package:talker_flutter/talker_flutter.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -14,26 +15,33 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   LocaleProvider localeProvider = LocaleProvider();
 
+  _initTalker();
+
   await Supabase.Supabase.initialize(
     url: supabaseUrl, 
     anonKey: supabaseKey
   );
 
   await localeProvider.loadLanguagePreference();
-  
   runApp(
     MultiProvider(
-      providers: [
+       providers: [
         ChangeNotifierProvider(create: (_) => ThemeProvider()),
         ChangeNotifierProvider.value(value: localeProvider)
       ],
-      child: //const InterestApp(),
-      DevicePreview(
+      child: const InterestApp(),
+      /*DevicePreview(
         enabled: true,
         builder: (context) => const InterestApp()
-      ),
+      ),*/
     ),
   );
+}
+
+void _initTalker() {
+  final talker = TalkerFlutter.init();
+  talker.verbose('Talker init completed!');
+  //final talkerDioLogger = TalkerDioLogger();
 }
 
 class InterestApp extends StatelessWidget {
