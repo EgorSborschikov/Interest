@@ -60,6 +60,15 @@ class SettingsOptions extends StatelessWidget{
           ),
         ),
         const SizedBox(height: 16.0),
+        Text(
+          AppLocalizations.of(context)!.additionalTerms,
+          style: TextStyle(
+            color: theme.primaryColor,
+            fontWeight: FontWeight.bold,
+            fontSize: 20
+          ),
+        ),
+        const SizedBox(height: 16.0),
         PlatformSettingsOptionsTile(
           title: AppLocalizations.of(context)!.inviteUsers, 
           child: IconButton(

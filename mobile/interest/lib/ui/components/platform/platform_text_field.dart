@@ -56,8 +56,12 @@ class PlatformTextField extends StatelessWidget{
       return Container(
         height: 50,
         decoration: BoxDecoration(
-          color: CupertinoColors.systemGrey6,
           borderRadius: BorderRadius.circular(8.0),
+          color: theme.colorScheme.surface,
+          border: Border.all(
+            color: CupertinoColors.inactiveGray,
+            width: 1.0, 
+          ),
         ),
         child: CupertinoTextField(
           focusNode: focusNode,
@@ -78,6 +82,9 @@ class PlatformTextField extends StatelessWidget{
           suffix: Padding(
             padding: const EdgeInsets.only(right: 12), 
             child: suffixIcon,
+          ),
+          style: TextStyle(
+            color: theme.colorScheme.onSurface
           ),
         ),
       );

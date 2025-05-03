@@ -27,11 +27,11 @@ Future<void> main() async {
         ChangeNotifierProvider(create: (_) => ThemeProvider()),
         ChangeNotifierProvider.value(value: localeProvider)
       ],
-      child: const InterestApp(),
-      /*DevicePreview(
+      child: //const InterestApp(),
+      DevicePreview(
         enabled: true,
         builder: (context) => const InterestApp()
-      ),*/
+      ),
     ),
   );
 }

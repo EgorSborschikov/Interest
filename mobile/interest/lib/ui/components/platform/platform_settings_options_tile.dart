@@ -14,13 +14,17 @@ class PlatformSettingsOptionsTile extends StatelessWidget{
     if (theme.isMaterial){
       return ListTile(
         title: Flexible(
-          child: Text(title)
+          child: Text(
+            title,
+          ),
         ),
         trailing: child,
       );
     } else {
       return CupertinoFormRow(
-        prefix: Text(title),
+        prefix: Text(
+          title,
+        ),
         child: child
       );
     }

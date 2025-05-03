@@ -1,9 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:interest/ui/components/common/drawer_option.dart';
+import 'package:interest/ui/components/common/additional_options_tile.dart';
 import 'package:interest/ui/themes/themes.dart';
-
 import '../../../features/settings/settings.dart';
 
 class CommonDrawer extends StatelessWidget {
@@ -29,7 +28,7 @@ class CommonDrawer extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 20.0),
-              DrawerOption(
+              AdditionalOptionsTile(
                 title: AppLocalizations.of(context)!.favorites, 
                 onTap: () {
 
@@ -39,7 +38,7 @@ class CommonDrawer extends StatelessWidget {
                   : Icon(CupertinoIcons.heart), 
               ),
               const SizedBox(height: 16.0),
-              DrawerOption(
+              AdditionalOptionsTile(
                 title: AppLocalizations.of(context)!.notifications, 
                 onTap: () {
 
@@ -47,7 +46,7 @@ class CommonDrawer extends StatelessWidget {
                 child: Icon(CupertinoIcons.bell), 
               ),
               const SizedBox(height: 16.0),
-              DrawerOption(
+              AdditionalOptionsTile(
                 title: AppLocalizations.of(context)!.settings,
                 onTap: () {
                   Navigator.push(
@@ -62,7 +61,7 @@ class CommonDrawer extends StatelessWidget {
                     : Icon(CupertinoIcons.settings_solid),
               ),
               const SizedBox(height: 16.0),
-              DrawerOption(
+              AdditionalOptionsTile(
                 title: AppLocalizations.of(context)!.logs,
                 onTap: () {
                   

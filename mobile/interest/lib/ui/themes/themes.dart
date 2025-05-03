@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
@@ -24,9 +23,9 @@ ThemeData get darkTheme => ThemeData(
   colorScheme: ColorScheme.dark(
     primary: _primaryColor,
     secondary: Colors.blueAccent,
-    surface: const Color(0xFF353535),
+    surface: const Color.fromARGB(255, 29, 29, 29),
     onSurface: Colors.white,
-    background: const Color(0xFF353535),
+    background: const Color.fromARGB(255, 29, 29, 29),
   ),
 );
 

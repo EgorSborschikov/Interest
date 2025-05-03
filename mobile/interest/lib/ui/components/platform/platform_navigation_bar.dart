@@ -1,6 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:interest/ui/themes/themes.dart';
+import 'package:provider/provider.dart';
+
+import '../../themes/theme_provider.dart';
 
 class PlatformNavigationBar extends StatelessWidget{
   final Function(int index) onSelect;
@@ -16,7 +19,7 @@ class PlatformNavigationBar extends StatelessWidget{
     if (theme.isMaterial){
       return BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
-        backgroundColor: theme.colorScheme.surface,
+        backgroundColor: Provider.of<ThemeProvider>(context).isDarkTheme ? Colors.black : Colors.white,
         items: items,
         currentIndex: currentIndex,
         selectedItemColor: theme.primaryColor,
@@ -25,7 +28,7 @@ class PlatformNavigationBar extends StatelessWidget{
       );
     } else {
       return CupertinoTabBar(
-        backgroundColor: theme.colorScheme.surface,
+        backgroundColor: Provider.of<ThemeProvider>(context).isDarkTheme ? Colors.black : Colors.white,
         items: items,
         currentIndex: currentIndex,
         activeColor: theme.primaryColor,

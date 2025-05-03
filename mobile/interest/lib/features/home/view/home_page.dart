@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:interest/features/additional_options/additional_options.dart';
 import 'package:interest/features/chats/chats.dart';
 import 'package:interest/features/profile/profile.dart';
 import 'package:interest/features/recommended/recommended.dart';
@@ -24,7 +25,8 @@ class _HomePageState extends State<HomePage> {
     RecommendedPage(),
     SearchPage(),
     ChatListPage(),
-    ProfilePage()
+    ProfilePage(),
+    AdditionalOptionsPage()
   ];
 
   @override
@@ -70,16 +72,28 @@ class _HomePageState extends State<HomePage> {
             label: AppLocalizations.of(context)!.recommended
           ),
           BottomNavigationBarItem(
-            icon: theme.isMaterial ? const Icon(Icons.search) : Icon(CupertinoIcons.search_circle),
+            icon: theme.isMaterial 
+            ? const Icon(Icons.search) 
+            : Icon(CupertinoIcons.search_circle),
             label: AppLocalizations.of(context)!.search
           ),
           BottomNavigationBarItem(
-            icon: theme.isMaterial ? const Icon(Icons.chat_rounded) : Icon(CupertinoIcons.chat_bubble),
+            icon: theme.isMaterial 
+            ? const Icon(Icons.chat_rounded) 
+            : Icon(CupertinoIcons.chat_bubble),
             label: AppLocalizations.of(context)!.chats
           ),
           BottomNavigationBarItem(
-            icon: theme.isMaterial ? const Icon(CupertinoIcons.person) : Icon(CupertinoIcons.person_crop_circle),
+            icon: theme.isMaterial 
+            ? const Icon(CupertinoIcons.person) 
+            : Icon(CupertinoIcons.person_crop_circle),
             label: AppLocalizations.of(context)!.profile
+          ),
+          BottomNavigationBarItem(
+            icon: theme.isMaterial 
+            ? const Icon(Icons.menu_rounded) 
+            : Icon(CupertinoIcons.bars),
+            label: AppLocalizations.of(context)!.otherOptions
           ),
         ], 
         onSelect: _onSelect, 

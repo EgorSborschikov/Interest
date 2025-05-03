@@ -26,8 +26,8 @@ class SettingsPage extends StatelessWidget{
             );
           }, 
           icon: theme.isMaterial 
-            ? Icon(Icons.arrow_back) 
-            : Icon(CupertinoIcons.back)
+            ? Icon(Icons.arrow_back, color: theme.colorScheme.onSurface) 
+            : Icon(CupertinoIcons.back, color: theme.colorScheme.onSurface)
         ),
       ),
       body: SafeArea(
