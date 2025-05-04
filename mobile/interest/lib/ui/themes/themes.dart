@@ -12,7 +12,7 @@ ThemeData get lightTheme => ThemeData(
     secondary: Colors.blueAccent,
     surface: Colors.white, // Фон компонентов
     onSurface: Colors.black, // Цвет текста/иконок на surface
-    background: Colors.white, // Фон Scaffold
+    tertiary: Colors.grey.shade200
   ),
 );
 
@@ -25,7 +25,7 @@ ThemeData get darkTheme => ThemeData(
     secondary: Colors.blueAccent,
     surface: const Color.fromARGB(255, 29, 29, 29),
     onSurface: Colors.white,
-    background: const Color.fromARGB(255, 29, 29, 29),
+    tertiary: Colors.grey.shade500
   ),
 );
 

@@ -4,7 +4,9 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:interest/ui/components/platform/platform.dart';
 import 'package:interest/ui/themes/themes.dart';
 import 'package:provider/provider.dart';
+import 'package:talker_flutter/talker_flutter.dart';
 import '../../../ui/themes/theme_provider.dart';
+import '../../profile/profile.dart';
 
 class SettingsOptions extends StatelessWidget{
   const SettingsOptions({super.key});
@@ -19,6 +21,7 @@ class SettingsOptions extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
+    final talker = TalkerFlutter.init();
     final theme = Theme.of(context);
 
     return Column(
@@ -60,6 +63,21 @@ class SettingsOptions extends StatelessWidget{
           ),
         ),
         const SizedBox(height: 16.0),
+        PlatformSettingsOptionsTile(
+          title: AppLocalizations.of(context)!.profile, 
+          child: IconButton(
+            onPressed: () {
+              Navigator.push(
+                context, 
+                MaterialPageRoute(
+                  builder: (context) => ProfileViewPage()
+                ),
+              );
+            }, 
+            icon: Icon(CupertinoIcons.chevron_compact_right)
+          ),
+        ),
+        const SizedBox(height: 20.0),
         Text(
           AppLocalizations.of(context)!.additionalTerms,
           style: TextStyle(
@@ -103,6 +121,71 @@ class SettingsOptions extends StatelessWidget{
               color: theme.cupertinoAlertColor,
             )
           ), 
+        ),
+        const SizedBox(height: 20.0),
+        Text(
+          AppLocalizations.of(context)!.otherOptions,
+          style: TextStyle(
+            color: theme.primaryColor,
+            fontWeight: FontWeight.bold,
+            fontSize: 20
+          ),
+        ),
+        const SizedBox(height: 16.0),
+        PlatformSettingsOptionsTile(
+          title: AppLocalizations.of(context)!.favorites, 
+          child: IconButton(
+            onPressed: () {
+              /*Navigator.push(
+                context, 
+                MaterialPageRoute(
+                  builder: (context) => ProfilePage()
+                ),
+              );*/
+            }, 
+            icon: Icon(CupertinoIcons.chevron_compact_right)
+          ),
+        ),
+        const SizedBox(height: 16.0),
+        PlatformSettingsOptionsTile(
+          title: AppLocalizations.of(context)!.notifications, 
+          child: IconButton(
+            onPressed: () {
+              /*Navigator.push(
+                context, 
+                MaterialPageRoute(
+                  builder: (context) => ProfilePage()
+                ),
+              );*/
+            }, 
+            icon: Icon(CupertinoIcons.chevron_compact_right)
+          ),
+        ),
+        const SizedBox(height: 16.0),
+        PlatformSettingsOptionsTile(
+          title: AppLocalizations.of(context)!.logs, 
+          child: IconButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => TalkerScreen(
+                    talker: talker,
+                    appBarTitle: AppLocalizations.of(context)!.logs,
+                    theme: TalkerScreenTheme(
+                      backgroundColor: theme.colorScheme.surface,
+                      textColor: theme.colorScheme.onSurface,
+                    ),
+                    appBarLeading: theme.isMaterial 
+                      ? IconButton(
+                          icon: Icon(Icons.arrow_back_ios_new_rounded), onPressed: () => Navigator.pop(context)) 
+                      : IconButton(icon:Icon(CupertinoIcons.chevron_back), onPressed: () => Navigator.pop(context)),
+                  ),
+                ),
+              );
+            }, 
+            icon: Icon(CupertinoIcons.chevron_compact_right)
+          ),
         ),
       ],
     );

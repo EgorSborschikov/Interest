@@ -14,6 +14,7 @@ class PlatformSettingsOptionsTile extends StatelessWidget {
 
     if (theme.isMaterial) {
       return ListTile(
+        contentPadding: EdgeInsets.only(),
         title: Text(title),
         trailing: child,
       );

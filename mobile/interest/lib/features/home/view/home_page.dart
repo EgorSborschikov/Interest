@@ -1,11 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:interest/features/additional_options/additional_options.dart';
 import 'package:interest/features/chats/chats.dart';
-import 'package:interest/features/profile/profile.dart';
 import 'package:interest/features/recommended/recommended.dart';
 import 'package:interest/features/search/search.dart';
+import 'package:interest/features/settings/settings.dart';
 import 'package:interest/ui/themes/themes.dart';
 import '../../../ui/components/platform/platform.dart';
 
@@ -25,8 +24,7 @@ class _HomePageState extends State<HomePage> {
     RecommendedPage(),
     SearchPage(),
     ChatListPage(),
-    ProfilePage(),
-    AdditionalOptionsPage()
+    SettingsPage()
   ];
 
   @override
@@ -85,15 +83,9 @@ class _HomePageState extends State<HomePage> {
           ),
           BottomNavigationBarItem(
             icon: theme.isMaterial 
-            ? const Icon(CupertinoIcons.person) 
-            : Icon(CupertinoIcons.person_crop_circle),
+            ? const Icon(CupertinoIcons.gear) 
+            : Icon(CupertinoIcons.settings_solid),
             label: AppLocalizations.of(context)!.profile
-          ),
-          BottomNavigationBarItem(
-            icon: theme.isMaterial 
-            ? const Icon(Icons.menu_rounded) 
-            : Icon(CupertinoIcons.bars),
-            label: AppLocalizations.of(context)!.otherOptions
           ),
         ], 
         onSelect: _onSelect, 

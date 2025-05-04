@@ -27,6 +27,8 @@
     "personalization" : "Personalization",
     "additionalTerms" : "Additional",
     "profile" : "Profile",
+    "profileData" : "Profile data",
+    "editProfile" : "Edit profile",
     "darkTheme" : "DarkTheme",
     "languageInterface" : "Language for interface",
     "deleteAccount" : "Delete an account",

@@ -27,6 +27,8 @@
     "personalization" : "Персонализация",
     "additionalTerms" : "Дополнительно",
     "profile" : "Профиль",
+    "profileData" : "Данные профиля",
+    "editProfile" : "Редактировать профиль",
     "darkTheme" : "Тёмная тема",
     "languageInterface" : "Язык интерфейса",
     "deleteAccount" : "Удалить аккаунт",
