@@ -6,15 +6,16 @@ from src.repository.users_repository import UserRepository
 
 users_router = APIRouter()
 
-@users_router.get("/get_user/{user_id}", response_model = UserResponse)
-async def get_user(user_id : UUID):
+@users_router.get("/get_user/{user_id}", response_model=UserResponse)
+async def get_user(user_id: UUID):
     user = UserRepository.get_user(user_id)
 
-    if not user:
+    if not user or "detail" in user:
         raise HTTPException(
-            status_code = 404,
-            detail = "User not found"
+            status_code=404, 
+            detail="User not found"
         )
+    return user
     
 @users_router.post("/create_user", response_model = UserResponse)
 async def create_user(user: CreateUserRequest):

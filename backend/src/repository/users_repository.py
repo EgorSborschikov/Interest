@@ -9,6 +9,7 @@ class UserRepository:
 
     @staticmethod
     def get_user(user_id: UUID):
+        supabase = get_supabase()
         response = supabase.table('Users').select('*').eq('IDUser', user_id).execute()
         user_data = response.data[0] if response.data else None
 
@@ -18,7 +19,18 @@ class UserRepository:
             user_data['motivations'] = [m['IDMotivation'] for m in motivations.data]
             user_data['interests'] = [i['IDInterest'] for i in interests.data]
 
-        return user_data
+            return {
+                "id": user_data['IDUser'],
+                "nickname": user_data['nickname'],
+                "date_of_birth": user_data.get('dateOfBirth'),
+                "phone_number": user_data.get('phoneNumber'),
+                "profile_photo_url": user_data.get('profilePhotoUrl'),
+                "motivations": user_data['motivations'],
+                "interests": user_data['interests']
+            }
+        
+        else:
+            return {"detail": "User not found"}
     
     @staticmethod
     def create_user(
