@@ -2,10 +2,8 @@ from pydantic import BaseModel, UUID4, Field
 from typing import List, Optional
 from datetime import date
 
-class UserRequest:
-    user_id: UUID4
-
 class CreateUserRequest(BaseModel):
+    user_id: UUID4
     nickname: str = Field(None, min_length = 1, max_length = 255)
     date_of_birth: Optional[date] = None
     phone_number: Optional[str] = Field(None, min_length = 10, max_length = 20)

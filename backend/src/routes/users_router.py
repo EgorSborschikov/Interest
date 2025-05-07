@@ -17,9 +17,10 @@ async def get_user(user_id: UUID):
         )
     return user
     
-@users_router.post("/create_user", response_model = UserResponse)
-async def create_user(user: CreateUserRequest):
-    new_user = UserRepository.create_user(
+@users_router.post("/create_user_profile", response_model = UserResponse)
+async def create_profile(user: CreateUserRequest):
+    new_user = UserRepository.create_user_profile(
+        user.user_id,
         user.nickname, 
         user.date_of_birth, 
         user.phone_number, 
@@ -29,12 +30,12 @@ async def create_user(user: CreateUserRequest):
     )
     return new_user
 
-@users_router.put("/update_user/{user_id}", response_model = UserResponse)
-async def update_user(
+@users_router.put("/update_user_profile/{user_id}", response_model = UserResponse)
+async def update_profile(
     user_id : UUID,
     updates : UpdateUserRequest
 ):
-    updated_user = UserRepository.update_user(
+    updated_user = UserRepository.update_user_profile(
         user_id, 
         updates.nickname, 
         updates.date_of_birth, 

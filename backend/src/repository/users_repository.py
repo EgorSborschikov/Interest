@@ -1,8 +1,11 @@
 from datetime import date
 from src.database.database_connection import get_supabase
+from postgrest.exceptions import APIError
 from uuid import UUID
 from typing import List, Optional
+import logging
 
+logger = logging.basicConfig(level=logging.INFO)
 supabase = get_supabase()
 
 class UserRepository:
@@ -33,35 +36,56 @@ class UserRepository:
             return {"detail": "User not found"}
     
     @staticmethod
-    def create_user(
-        nickname : str,
-        date_of_birth : Optional[date],
-        phone_number : Optional[str],
-        profile_photo_url : Optional[str],
-        motivations: Optional[List[UUID]] = None, 
-        interests: Optional[List[UUID]] = None       
-    ):
+    def create_user_profile(user_id: UUID, nickname: str, date_of_birth: Optional[str],
+                            phone_number: Optional[str], profile_photo_url: Optional[str],
+                            motivations: Optional[List[UUID]] = None, interests: Optional[List[UUID]] = None):
+        supabase = get_supabase()
         data = {
-            'nickname' : nickname,
-            'dateOfBirth' : date_of_birth,
-            'phoneNumber' : phone_number,
-            'profilePhotoUrl' : profile_photo_url
+            'IDUser': str(user_id),
+            'nickname': nickname,
+            'dateOfBirth': date_of_birth.isoformat() if date_of_birth else None,
+            'phoneNumber': phone_number,
+            'profilePhotoUrl': profile_photo_url
         }
-        response = supabase.table('users').insert(data).execute()
-        user_id = response.data[0]['IDUser']
+        logging.info(f"Inserting/Updating data: {data}")
+
+        # Проверка на существование пользователя
+        response = supabase.table('Users').select('*').eq('IDUser', str(user_id)).execute()
+
+        match response.data:
+            case []:
+                # Вставка нового пользователя
+                insert_response = supabase.table('Users').insert(data).execute()
+                logging.info(f"Insert Response: {insert_response}")
+            case _:
+                # Обновление существующего пользователя
+                update_response = supabase.table('Users').update(data).eq('IDUser', str(user_id)).execute()
+                logging.info(f"Update Response: {update_response}")
 
         if motivations:
-            motivation_data = [{'IDUser': user_id, 'IDMotivation': m} for m in motivations]
+            # Удаление старых мотиваций
+            supabase.table('UserMotivations').delete().eq('IDUser', str(user_id)).execute()
+            motivation_data = [{'IDUser': str(user_id), 'IDMotivation': str(m)} for m in motivations]
             supabase.table('UserMotivations').insert(motivation_data).execute()
 
         if interests:
-            interest_data = [{'IDUser': user_id, 'IDInterest': i} for i in interests]
+            # Удаление старых интересов
+            supabase.table('UserInterests').delete().eq('IDUser', str(user_id)).execute()
+            interest_data = [{'IDUser': str(user_id), 'IDInterest': str(i)} for i in interests]
             supabase.table('UserInterests').insert(interest_data).execute()
 
-        return response.data
+        return {
+            "id": data['IDUser'],
+            "nickname": data['nickname'],
+            "date_of_birth": data['dateOfBirth'],
+            "phone_number": data['phoneNumber'],
+            "profile_photo_url": data['profilePhotoUrl'],
+            "motivations": [str(m) for m in motivations] if motivations else [],
+            "interests": [str(i) for i in interests] if interests else []
+        }
     
     @staticmethod
-    def update_user(
+    def update_user_profile(
         user_id: UUID, 
         nickname: Optional[str] = None, 
         date_of_birth: Optional[str] = None,
