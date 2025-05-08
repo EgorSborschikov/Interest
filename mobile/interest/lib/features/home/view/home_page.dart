@@ -83,9 +83,9 @@ class _HomePageState extends State<HomePage> {
           ),
           BottomNavigationBarItem(
             icon: theme.isMaterial 
-            ? const Icon(CupertinoIcons.gear) 
+            ? const Icon(Icons.construction) 
             : Icon(CupertinoIcons.settings_solid),
-            label: AppLocalizations.of(context)!.profile
+            label: AppLocalizations.of(context)!.settings
           ),
         ], 
         onSelect: _onSelect, 

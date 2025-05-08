@@ -8,3 +8,5 @@ export 'platform_settings_options_tile.dart';
 export 'platform_switch.dart';
 export 'platform_language_drop.dart';
 export 'platform_drop_down.dart';
+export 'platform_search_sliver_app_bar.dart';
+export 'platform_search_text_field.dart';

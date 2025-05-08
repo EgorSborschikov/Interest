@@ -43,5 +43,7 @@
     "logs" : "System messages",
     "allowNotify" : "Allow notifications?",
     "inviteUsers" : "Invite users",
-    "technicalSupports" : "Technical supports"
+    "technicalSupports" : "Technical supports",
+    "searchOnNickname" : "Search on nickname",
+    "ready" : "Done"
 }

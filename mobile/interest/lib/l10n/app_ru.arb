@@ -43,5 +43,7 @@
     "logs" : "Системные сообщения",
     "allowNotify" : "Разрешить уведомления?",
     "inviteUsers" : "Пригласить пользователей",
-    "technicalSupports" : "Техническая поддержка"
+    "technicalSupports" : "Техническая поддержка",
+    "searchOnNickname" : "Поиск по никнейму",
+    "ready" : "Готово"
 }
