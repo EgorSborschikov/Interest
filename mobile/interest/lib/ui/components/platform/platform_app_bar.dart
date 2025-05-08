@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:interest/ui/themes/themes.dart';
+import 'package:provider/provider.dart';
+import '../../themes/theme_provider.dart';
 
 ///<summary>
 /// Виджет определения и отображения нативной верхней панели приложения
@@ -16,10 +18,13 @@ class PlatformAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final themeProvider = Provider.of<ThemeProvider>(context);
 
     if (theme.isMaterial){
       return AppBar(
-        backgroundColor: theme.colorScheme.surface,
+        backgroundColor: themeProvider.isDarkTheme 
+          ? theme.colorScheme.tertiary
+          : Colors.white,
         title: Text(
           title,
           style: TextStyle(
@@ -40,7 +45,9 @@ class PlatformAppBar extends StatelessWidget implements PreferredSizeWidget {
       );
     } else {
       return CupertinoNavigationBar(
-        backgroundColor: theme.colorScheme.surface,
+        backgroundColor: themeProvider.isDarkTheme 
+          ? theme.colorScheme.tertiary
+          : Colors.white,
         middle: Text(
           title,
           style: TextStyle(
