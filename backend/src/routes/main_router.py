@@ -1,4 +1,3 @@
-# src/routes/main_router.py
 from fastapi import APIRouter
 from src.routes.users_router import users_router
 from src.routes.search_router import search_router

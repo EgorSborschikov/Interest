@@ -1,6 +1,16 @@
-from fastapi import FastAPI
+import logging
 import uvicorn
+from fastapi import FastAPI
 from src.routes.main_router import main_router
+
+logging.basicConfig(
+    level=logging.DEBUG,
+    format="%(asctime)s [%(levelname)s] %(message)s",
+    handlers=[logging.StreamHandler()]
+)
+
+logger = logging.getLogger("uvicorn.error")
+logger.setLevel(logging.DEBUG)
 
 app = FastAPI(
     title='InterestAPI',

@@ -1,11 +1,11 @@
-from datetime import date
+from datetime import date, datetime
 from src.database.database_connection import get_supabase
 from postgrest.exceptions import APIError
 from uuid import UUID
 from typing import List, Optional
 import logging
 
-logger = logging.basicConfig(level=logging.INFO)
+logging.basicConfig(level=logging.INFO)
 supabase = get_supabase()
 
 class UserRepository:
@@ -86,39 +86,85 @@ class UserRepository:
     
     @staticmethod
     def update_user_profile(
-        user_id: UUID, 
-        nickname: Optional[str] = None, 
-        date_of_birth: Optional[str] = None,
-        phone_number: Optional[str] = None, 
+        user_id: UUID,
+        nickname: Optional[str] = None,
+        date_of_birth: Optional[date] = None,
+        phone_number: Optional[str] = None,
         profile_photo_url: Optional[str] = None,
-        motivations: Optional[List[UUID]] = None, 
+        motivations: Optional[List[UUID]] = None,
         interests: Optional[List[UUID]] = None
     ):
-        updates = {}
+        try:
+            supabase = get_supabase()
+            updates = {}
 
-        # заменить на конструкцию match-case
-        if nickname:
-            updates['nickname'] = nickname
-        if date_of_birth:
-            updates['dateOfBirth'] = date_of_birth
-        if phone_number:
-            updates['phoneNumber'] = phone_number
-        if profile_photo_url:
-            updates['profilePhotoUrl'] = profile_photo_url
+            logging.info(f"Starting update for user {user_id}")
+            logging.debug(f"Received data: {locals()}")
 
-        response = supabase.table('Users').update(updates).eq('IDUser', user_id).execute()
+            match(nickname, date_of_birth, phone_number, profile_photo_url):
+                case (nickname, _, _, _) if nickname:
+                    updates['nickname'] = nickname
+                
+                case (_, date_of_birth, _, _) if date_of_birth:
+                    updates['dateOfBirth'] = date_of_birth.isoformat()
 
-        if motivations:
-            supabase.table('UserMotivations').delete().eq('IDUser', user_id).execute()
-            motivation_data = [{'IDUser': user_id, 'IDMotivation': m} for m in motivations]
-            supabase.table('UserMotivations').insert(motivation_data).execute()
+                case (_, _, phone_number, _) if phone_number:
+                    updates['phoneNumber'] = phone_number
 
-        if interests:
-            supabase.table('UserInterests').delete().eq('IDUser', user_id).execute()
-            interest_data = [{'IDUser': user_id, 'IDInterest': i} for i in interests]
-            supabase.table('UserInterests').insert(interest_data).execute()
+                case (_, _, _, profile_photo_url) if profile_photo_url:
+                    updates['profilePhotoUrl'] = profile_photo_url
 
-        return response.data
+            logging.debug(f"Generate updates dict : {updates}")
+
+            if updates:
+                logging.info(f"Executing DB update for user {user_id}")
+                response = supabase.table('Users').update(updates).eq('IDUser', str(user_id)).execute()
+                logging.debug(f"Supabase response: {response.data}")
+
+                if not response.data:
+                    logging.warning(f"No data returned from User table update for {user_id}")
+
+                    return None
+                
+            if motivations is not None:  # Важно проверять именно на None, а не на bool
+                logging.info(f"Updating motivations for {user_id}: {motivations}")
+                supabase.table('UserMotivations').delete().eq('IDUser', str(user_id)).execute()
+                if motivations:  # Вставляем только если список не пустой
+                    motivation_data = [{'IDUser': str(user_id), 'IDMotivation': str(m)} for m in motivations]
+                    supabase.table('UserMotivations').insert(motivation_data).execute()
+            else:
+                logging.debug("No motivations update requested")
+
+            if interests is not None:
+                logging.info(f"Updating interests for {user_id}: {interests}")
+                supabase.table('UserInterests').delete().eq('IDUser', str(user_id)).execute()
+                if interests:
+                    interest_data = [{'IDUser': str(user_id), 'IDInterest': str(i)} for i in interests]
+                    supabase.table('UserInterests').insert(interest_data).execute()
+            else:
+                logging.debug("No interests update requested")
+
+            logging.info(f"Fetching updated data for {user_id}")
+            updated_user = supabase.table('Users').select('*').eq('IDUser', str(user_id)).execute().data[0]
+            
+            motivations = supabase.table('UserMotivations').select('IDMotivation').eq('IDUser', str(user_id)).execute().data
+            interests = supabase.table('UserInterests').select('IDInterest').eq('IDUser', str(user_id)).execute().data
+
+            logging.debug(f"Final assembled data: {updated_user}")
+
+            return {
+                "id": updated_user['IDUser'],
+                "nickname": updated_user['nickname'],
+                "date_of_birth":updated_user['dateOfBirth'],
+                "phone_number": updated_user['phoneNumber'],
+                "profile_photo_url": updated_user['profilePhotoUrl'],
+                "motivations": [UUID(m['IDMotivation']) for m in motivations],
+                "interests": [UUID(i['IDInterest']) for i in interests]
+            }
+        
+        except Exception as e:
+            logging.error(f"Error updating user {user_id}: {str(e)}", exc_info=True)
+            raise
     
     @staticmethod
     def delete_user(user_id: UUID):
