@@ -28,12 +28,11 @@
 ### Containerize:
 ![Docker](https://img.shields.io/badge/-Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
 
+### Build Automation:
+![Makefile](https://img.shields.io/badge/-Makefile-000000?style=for-the-badge&logo=gnu&logoColor=white)
+
 ### API Request testing:
 ![Postman](https://img.shields.io/badge/-Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white)
-
-## Most Used Languages
-
-![Top Language](https://img.shields.io/github/languages/top/EgorSborschikov/Interest)
 
 ## Install and Setup
 
