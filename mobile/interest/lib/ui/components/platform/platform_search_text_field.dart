@@ -25,34 +25,53 @@ class _PlatformSearchTextFieldState extends State<PlatformSearchTextField> {
     return Focus(
       onFocusChange: (value) => _onFocusChanged(value),
       child: theme.isMaterial
-        ? TextField(
-            controller: widget.controller,
-            textInputAction: TextInputAction.search,
-            onSubmitted: widget.onSubmitted,
-            onEditingComplete: widget.onEditingComplete,
-            decoration: InputDecoration(
-              hintText: AppLocalizations.of(context)!.searchOnNickname,
-              hintStyle: TextStyle(
-                color: Colors.grey.withOpacity(0.5),
-                fontWeight: FontWeight.w400,
+        ? Container(
+          decoration: BoxDecoration(
+            color: theme.colorScheme.surface,
+            borderRadius: BorderRadius.circular(16),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black12,
+                blurRadius: 6,
+                offset: Offset(0, 2)
               ),
-              contentPadding: const EdgeInsets.symmetric(
-                horizontal: 12,
+            ],
+          ),
+          margin: EdgeInsets.symmetric(horizontal: 8),
+          child: Row(
+            children: [
+              Expanded(
+                child: TextField(
+                  controller: widget.controller,
+                  textInputAction: TextInputAction.search,
+                  onSubmitted: widget.onSubmitted,
+                  onEditingComplete: widget.onEditingComplete,
+                  decoration: InputDecoration(
+                    hintText: AppLocalizations.of(context)!.searchOnNickname,
+                    hintStyle: TextStyle(
+                      color: theme.colorScheme.onSurface.withOpacity(0.5),
+                      fontWeight: FontWeight.w400,
+                    ),
+                    contentPadding: const EdgeInsets.symmetric(
+                      horizontal: 12,
+                    ),
+                    enabledBorder: const OutlineInputBorder(
+                      borderSide: BorderSide.none
+                    ),
+                    border: const OutlineInputBorder(
+                      borderSide: BorderSide.none
+                    ),
+                    suffixIcon: _showSuffix
+                      ? IconButton(
+                          onPressed: _clearText, 
+                          icon: Icon(Icons.close, size: 22),
+                        ) : null 
+                  ),
+                ),
               ),
-              enabledBorder: const OutlineInputBorder(
-                borderSide: BorderSide.none
-              ),
-              border: const OutlineInputBorder(
-                borderSide: BorderSide.none
-              ),
-              suffixIcon: _showSuffix
-                ? IconButton(
-                    onPressed: _clearText, 
-                    icon: Icon(Icons.close, size: 22),
-                  )
-                : null 
-            ),
-          )
+            ],
+          ),
+        )
         : CupertinoSearchTextField(
             controller: widget.controller,
             onSubmitted: widget.onSubmitted,
