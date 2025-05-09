@@ -1,28 +1,82 @@
+from src.schemas.response.search_response import SearchResponse
 from src.database.database_connection import get_supabase
 from uuid import UUID
-from typing import Optional
+from typing import List
+import logging
 
 supabase = get_supabase()
 
 class SearchRepository:
 
     @staticmethod
-    def search_users(
-        nickname : Optional[str] = None,
-        interest : Optional[str] = None,
-        motivation : Optional[str] = None
-    ):
-        query = supabase.table('Users').select('*')
+    def search_by_nickname(nickname_part: str) -> List[SearchResponse]:
+        try:
+            response = supabase.table("Users").select("*").ilike("nickname", f"%{nickname_part}%").execute()
+            users = SearchRepository._enrich_users(response.data)
+            return users
+        
+        except Exception as e:
+            logging.error(f"Error search on nickname: {str(e)}")
+            raise
 
-        # заменить на конструкцию match-case
-        if nickname:
-            query = query.like('nickname', f'%{nickname}%')
-        if interest:
-            interest_ids = supabase.table('Interests').select('IDInterest').like('keyword', f'%{interest}%').execute()
-            query = query.in_('IDInterest', [i['IDInterest'] for i in interest_ids.data])
-        if motivation:
-            motivation_ids = supabase.table('Motivations').select('IDMotivation').like('keyword', f'%{motivation}%').execute()
-            query = query.in_('IDMotivation', [m['IDMotivation'] for m in motivation_ids.data])
+    @staticmethod
+    def filter_by_interests_motivations(
+        interests: List[UUID],
+        motivations: List[UUID]
+    ) -> List[SearchResponse]:
+        try:
+            user_ids = set()
 
-        response = query.execute()
-        return response.data
+            if interests:
+                interest_response = supabase.table("UserInterests").select("IDUser").in_("IDInterest", interests).execute()
+                user_ids.update([user["IDUser"] for user in interest_response.data])
+
+            if motivations:
+                motivation_response = supabase.table("UserMotivations").select("IDUser").in_("IDMotivation", motivations).execute() 
+                user_ids.update([user["IDUser"] for user in motivation_response.data])
+
+            if not user_ids:
+                return []
+            
+            response = supabase.table("Users").select("*").in_("IDUser", list(user_ids)).execute()
+            users = SearchRepository._enrich_users(response.data)
+            return users
+    
+        except Exception as e:
+            logging.error(f"Filtering error: {str(e)}")
+            raise
+
+    @staticmethod
+    def _enrich_users(users_data: List[dict]) -> List[SearchResponse]:
+        enriched_users = []
+        for user in users_data:
+            # Проверьте, что user содержит "IDUser"
+            print("Текущий пользователь:", user)
+
+            # Запрос интересов
+            interests = (
+                supabase.table("UserInterests")
+                .select("Interests (keyword)")
+                .eq("IDUser", user["IDUser"])
+                .execute()
+            ).data
+
+            # Запрос мотиваций
+            motivations = (
+                supabase.table("UserMotivations")
+                .select("Motivations (keyword)")
+                .eq("IDUser", user["IDUser"])
+                .execute()
+            ).data
+
+            # Формируем ответ
+            enriched_users.append(
+                SearchResponse(
+                    IDUser=user["IDUser"],  # Не "id"!
+                    nickname=user["nickname"],
+                    profilePhotoUrl=user.get("profilePhotoUrl"),
+                    interests=[item["Interests"]["keyword"] for item in interests],
+                    motivations=[item["Motivations"]["keyword"] for item in motivations]
+                )
+            )
+        return enriched_users

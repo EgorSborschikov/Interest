@@ -1,6 +1,11 @@
-from pydantic import BaseModel
-from typing import List
-from .user_response import UserResponse
+from datetime import date
+from typing import List, Optional
+from uuid import UUID
+from pydantic import BaseModel, Field
 
 class SearchResponse(BaseModel):
-    users: List[UserResponse]
+    IDUser: UUID 
+    nickname: str
+    profilePhotoUrl: Optional[str] = Field(None, max_length=2048)
+    interests: List[str] = []
+    motivations: List[str] = []
