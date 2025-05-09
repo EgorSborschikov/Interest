@@ -21,9 +21,22 @@ class _PlatformSearchSliverAppBarState extends State<PlatformSearchSliverAppBar>
   final TextEditingController _searchController = TextEditingController();
 
   @override
+  void initState() {
+    super.initState();
+    Provider.of<ThemeProvider>(context, listen: false).addListener(_onThemeChanged);
+  }
+
+  @override
   void dispose() {
+    Provider.of<ThemeProvider>(context, listen: false).removeListener(_onThemeChanged);
     _searchController.dispose();
     super.dispose();
+  }
+
+  void _onThemeChanged() {
+    if (mounted) {
+      setState(() {});
+    }
   }
 
   @override
@@ -34,8 +47,10 @@ class _PlatformSearchSliverAppBarState extends State<PlatformSearchSliverAppBar>
     if (theme.isMaterial) {
       return SliverAppBar(
         backgroundColor: themeProvider.isDarkTheme
-            ? theme.colorScheme.tertiary
+            ? theme.colorScheme.tertiary.withOpacity(1.0)
             : Colors.white,
+        elevation: 0,
+        surfaceTintColor: Colors.transparent,
         automaticallyImplyLeading: false,
         title: Text(
           AppLocalizations.of(context)!.search,
@@ -46,8 +61,9 @@ class _PlatformSearchSliverAppBarState extends State<PlatformSearchSliverAppBar>
           ),
         ),
         centerTitle: true,
-        floating: true,
-        snap: true,
+        pinned: true,
+        floating: false,
+        snap: false,
         actions: [
           IconButton(
             onPressed: () {},
@@ -76,7 +92,7 @@ class _PlatformSearchSliverAppBarState extends State<PlatformSearchSliverAppBar>
           delegate: SliverChildListDelegate([
             CupertinoSliverNavigationBar(
               backgroundColor: themeProvider.isDarkTheme
-                  ? theme.colorScheme.tertiary
+                  ? theme.colorScheme.tertiary.withOpacity(1.0)
                   : Colors.white,
               automaticallyImplyLeading: false,
               largeTitle: Text(

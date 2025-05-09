@@ -1,6 +1,5 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
-import 'package:interest/features/home/home.dart';
 import 'package:interest/l10n/locale_provider.dart';
 import 'package:interest/services/supabase/auth_gate.dart';
 import 'package:interest/ui/themes/themes.dart';

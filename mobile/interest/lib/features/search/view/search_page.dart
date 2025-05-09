@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:interest/ui/components/common/user_search_card.dart';
 import 'package:interest/ui/components/platform/platform.dart';
 
 class SearchPage extends StatelessWidget{
@@ -8,21 +9,14 @@ class SearchPage extends StatelessWidget{
   Widget build(BuildContext context) {
     return Scaffold(
       body: CustomScrollView(
-        slivers: <Widget>[
+        slivers: [
           PlatformSearchSliverAppBar(),
-          SliverList(
-            delegate: SliverChildBuilderDelegate(
-              (BuildContext context, int index) {
-                // Здесь вы можете добавить элементы списка для отображения результатов поиска
-                return ListTile(
-                  title: Text('Item $index'),
-                );
-              },
-              childCount: 20, // Количество элементов в списке
-            ),
+          const SliverToBoxAdapter(child: SizedBox(height: 16)),
+          SliverList.builder(
+            itemBuilder: (context, index) => UserSearchCard()
           ),
         ],
-      )
+      ),
     );
   }
 }
