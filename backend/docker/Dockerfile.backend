@@ -14,7 +14,7 @@ RUN  pip install poetry==1.8.2
 WORKDIR /interest/backend/
 
 # Копируем pyproject.toml и poetry.lock
-COPY /backend/pyptoject.toml /backend/poetry.lock /interest/backend/
+COPY pyproject.toml poetry.lock . /interest/backend/
 
 # Настраиваем Poetry
 RUN poetry config virtualenvs.create false

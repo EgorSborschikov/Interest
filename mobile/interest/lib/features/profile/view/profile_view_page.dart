@@ -26,17 +26,15 @@ class ProfileViewPage extends StatelessWidget{
               );
             },
             icon: theme.isMaterial 
-              ? Icon(Icons.edit_note_rounded, size: 36, color: theme.colorScheme.onSurface)
-              : Icon(CupertinoIcons.pencil, size: 36, color: theme.colorScheme.onSurface)
+              ? Icon(Icons.edit, color: theme.colorScheme.onSurface)
+              : Icon(CupertinoIcons.pencil, color: theme.colorScheme.onSurface)
           ),
         ],
         child: IconButton(
           onPressed: () => Navigator.pop(context),
-          icon: Icon(
-            CupertinoIcons.chevron_left_circle_fill,
-            size: 36,
-            color: theme.colorScheme.onSurface,
-          ),
+          icon: theme.isMaterial
+            ? Icon(Icons.arrow_back_rounded, color: theme.colorScheme.onSurface, size: 26)
+            : Icon(CupertinoIcons.back, color: theme.cupertinoActionColor, size: 26)
         ),
       ),
     );
