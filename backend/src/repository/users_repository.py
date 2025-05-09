@@ -168,5 +168,16 @@ class UserRepository:
     
     @staticmethod
     def delete_user(user_id: UUID):
-        response = supabase.table('Users').delete().eq('IDUser', user_id).execute()
-        return response.data
+        try:
+            supabase = get_supabase()
+
+            existing_user = supabase.table('Users').select('*').eq('IDUser', str(user_id)).execute()
+            if not existing_user.data:
+                return None
+            
+            response = supabase.table('Users').delete().eq('IDUser', str(user_id)).execute()
+            return response.data
+        
+        except Exception as e:
+            logging.error(f"Error deleting user {user_id}: {str(e)}", exc_info=True)
+            raise

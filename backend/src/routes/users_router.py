@@ -1,5 +1,6 @@
 from uuid import UUID
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, Body, HTTPException
+from fastapi.responses import JSONResponse
 from src.schemas.request.user_request import CreateUserRequest, UpdateUserRequest
 from src.schemas.response.user_response import UserResponse
 from src.repository.users_repository import UserRepository
@@ -53,14 +54,14 @@ async def update_profile(
     
     return updated_user
 
-@users_router.delete("/delete_user")
-async def delete_user(user_id : UUID):
+@users_router.delete("/pungs_user_profile_data")
+async def delete_user(user_id: UUID = Body(..., embed=True)):
     deleted = UserRepository.delete_user(user_id)
-
-    if not deleted:
-        raise HTTPException(
-            status_code=404, 
-            detail="User not found"
+    
+    if deleted is None:
+        return JSONResponse(
+            status_code=404,
+            content={"detail": "User not found"}
         )
     
     return {"detail": "User deleted"}
