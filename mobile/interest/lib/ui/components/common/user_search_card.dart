@@ -1,9 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:interest/ui/themes/themes.dart';
+import '../user.dart';
 
 class UserSearchCard extends StatelessWidget{
-  const UserSearchCard({super.key});
+  final User user;
+
+  const UserSearchCard({super.key, required this.user});
   
   @override
   Widget build(BuildContext context) {
@@ -15,7 +18,23 @@ class UserSearchCard extends StatelessWidget{
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text('Nickname'),
+          Row(
+            children: [
+              if (user.profilePhotoUrl != null)
+                CircleAvatar(
+                  backgroundImage: NetworkImage(user.profilePhotoUrl!),
+                ),
+              SizedBox(width: 10),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(user.nickname),
+                  Text('Interests: ${user.interests.join(', ')}'),
+                  Text('Motivations: ${user.motivations.join(', ')}'),
+                ],
+              ),
+            ],
+          ),
           IconButton(
             onPressed: () {
 

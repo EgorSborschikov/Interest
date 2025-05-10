@@ -7,8 +7,10 @@ import 'package:provider/provider.dart';
 
 import '../../themes/theme_provider.dart';
 
-class PlatformSearchSliverAppBar extends StatefulWidget implements PreferredSizeWidget{
-  const PlatformSearchSliverAppBar({super.key});
+class PlatformSearchSliverAppBar extends StatefulWidget implements PreferredSizeWidget{  
+  final Function(String) onSearch;
+
+  const PlatformSearchSliverAppBar({super.key, required this.onSearch});
 
   @override
   State<PlatformSearchSliverAppBar> createState() => _PlatformSearchSliverAppBarState();
@@ -19,17 +21,19 @@ class PlatformSearchSliverAppBar extends StatefulWidget implements PreferredSize
 
 class _PlatformSearchSliverAppBarState extends State<PlatformSearchSliverAppBar> {
   final TextEditingController _searchController = TextEditingController();
+  final FocusNode _focusNode = FocusNode();
 
   @override
   void initState() {
     super.initState();
+    _focusNode.requestFocus();
     Provider.of<ThemeProvider>(context, listen: false).addListener(_onThemeChanged);
   }
 
   @override
   void dispose() {
     Provider.of<ThemeProvider>(context, listen: false).removeListener(_onThemeChanged);
-    _searchController.dispose();
+    _focusNode.dispose();
     super.dispose();
   }
 
@@ -64,12 +68,6 @@ class _PlatformSearchSliverAppBarState extends State<PlatformSearchSliverAppBar>
         pinned: true,
         floating: false,
         snap: false,
-        actions: [
-          IconButton(
-            onPressed: () {},
-            icon: Icon(Icons.tune_rounded),
-          ),
-        ],
         bottom: PreferredSize(
           preferredSize: const Size.fromHeight(70),
           child: Container(
@@ -84,11 +82,9 @@ class _PlatformSearchSliverAppBarState extends State<PlatformSearchSliverAppBar>
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Expanded(
-                  child: PlatformSearchTextField(
+                  child: CommonSearchTextField(
                     controller: _searchController,
-                    onSubmitted: (value) {
-
-                    },
+                    onSubmitted: (value) => _onTapSearch(context),
                   ),
                 ),
                 const SizedBox(width: 8),
@@ -100,10 +96,26 @@ class _PlatformSearchSliverAppBarState extends State<PlatformSearchSliverAppBar>
                     borderRadius: BorderRadius.circular(12)
                   ),
                   child: IconButton(
-                    onPressed: () {
-
-                    }, 
-                    icon: Icon(Icons.search_rounded, color: Colors.white),
+                    onPressed: () => widget.onSearch(_searchController.text), 
+                    icon: theme.isMaterial
+                      ? Icon(Icons.search_rounded, color: Colors.white)
+                      : Icon(CupertinoIcons.search, color: Colors.white),
+                    padding: EdgeInsets.zero,
+                  ),
+                ),
+                const SizedBox(width: 8),
+                Container(
+                  width: 48,
+                  height: 48,
+                  decoration: BoxDecoration(
+                    color: theme.primaryColor,
+                    borderRadius: BorderRadius.circular(12)
+                  ),
+                  child: IconButton(
+                    onPressed: () => widget.onSearch(_searchController.text), 
+                    icon: theme.isMaterial
+                      ? Icon(Icons.more_vert, color: Colors.white)
+                      : Icon(CupertinoIcons.ellipsis, color: Colors.white),
                     padding: EdgeInsets.zero,
                   ),
                 ),
@@ -126,9 +138,15 @@ class _PlatformSearchSliverAppBarState extends State<PlatformSearchSliverAppBar>
             fontSize: 26,
           ),
         ),
+        leading: IconButton(
+          onPressed: () {
+
+          }, 
+          icon: Icon(CupertinoIcons.ellipsis, color: theme.colorScheme.onSurface),
+        ),
         trailing: CupertinoButton(
           padding: EdgeInsets.zero,
-          onPressed: () {},
+          onPressed: () => widget.onSearch(_searchController.text),
           child: Text(
             AppLocalizations.of(context)!.ready,
             style: TextStyle(
@@ -138,24 +156,34 @@ class _PlatformSearchSliverAppBarState extends State<PlatformSearchSliverAppBar>
           ),
         ),
         middle: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16),
-            child: CupertinoSearchTextField(
-                controller: _searchController,
-                placeholder: AppLocalizations.of(context)!.searchOnNickname,
-                prefixIcon: Icon(CupertinoIcons.search),
-                suffixIcon: Icon(CupertinoIcons.clear_thick),
-                onSuffixTap: () => _searchController.clear(),
-                style: TextStyle(
-                    color: theme.colorScheme.onSurface,
-                    fontSize: 16,
+          padding: EdgeInsets.symmetric(horizontal: 16),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Expanded(
+                child: CommonSearchTextField(
+                  controller: _searchController,
+                  onSubmitted: (value) {
+                    
+                  },
                 ),
-                decoration: BoxDecoration(
-                    color: theme.colorScheme.surface,
-                    borderRadius: BorderRadius.circular(8),
-                ),
-            ),
+              ),
+            ],
+          ),
         ),
       );  
     }
+  }
+
+  void _onTapSearch(BuildContext context) {
+    final query = _searchController.text;
+    if (query.isNotEmpty) {
+      _fetchQuery(context, query);
+    }
+  }
+
+  void _fetchQuery(context, query) {
+
   }
 }

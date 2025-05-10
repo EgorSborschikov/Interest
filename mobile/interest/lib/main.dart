@@ -1,5 +1,6 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
+import 'package:interest/features/home/home.dart';
 import 'package:interest/l10n/locale_provider.dart';
 import 'package:interest/services/supabase/auth_gate.dart';
 import 'package:interest/ui/themes/themes.dart';
@@ -29,11 +30,11 @@ Future<void> main() async {
         ChangeNotifierProvider(create: (_) => ThemeProvider()),
         ChangeNotifierProvider.value(value: localeProvider)
       ],
-      child: const InterestApp(),
-      /*DevicePreview(
+      child: //const InterestApp(),
+      DevicePreview(
         enabled: true,
         builder: (context) => const InterestApp()
-      ),*/
+      ),
     ),
   );
 }
@@ -69,7 +70,7 @@ class InterestApp extends StatelessWidget {
       theme: themeProvider.isDarkTheme 
         ? darkTheme 
         : lightTheme,
-      home: AuthGate()
+      home: HomePage()//AuthGate()
     );
   }
 }

@@ -10,9 +10,13 @@ class PlatformProgressIndicator extends StatelessWidget{
     final theme = Theme.of(context);
 
     if (theme.isMaterial){
-      return CircularProgressIndicator();
+      return CircularProgressIndicator(
+        color: theme.colorScheme.onSurface,
+      );
     } else {
-      return CupertinoActivityIndicator();
+      return CupertinoActivityIndicator(
+        color: theme.colorScheme.onSurface,
+      );
     }
   }
 }

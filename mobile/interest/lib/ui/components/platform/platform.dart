@@ -9,4 +9,4 @@ export 'platform_switch.dart';
 export 'platform_language_drop.dart';
 export 'platform_drop_down.dart';
 export 'platform_search_sliver_app_bar.dart';
-export 'platform_search_text_field.dart';
+export '../common/common_search_text_field.dart';
