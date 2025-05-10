@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:interest/ui/themes/themes.dart';
 import '../user.dart';
 
-class UserSearchCard extends StatelessWidget{
+class UserSearchCard extends StatelessWidget {
   final User user;
 
   const UserSearchCard({super.key, required this.user});
-  
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
@@ -24,7 +24,7 @@ class UserSearchCard extends StatelessWidget{
                 CircleAvatar(
                   backgroundImage: NetworkImage(user.profilePhotoUrl!),
                 ),
-              SizedBox(width: 10),
+              const SizedBox(width: 10),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -37,15 +37,15 @@ class UserSearchCard extends StatelessWidget{
           ),
           IconButton(
             onPressed: () {
-
-            }, 
+              // Обработка нажатия
+            },
             icon: theme.isMaterial
-              ? Icon(
-                  Icons.arrow_forward_ios_rounded, 
-                  color: theme.colorScheme.onSurface)
-              : Icon(
-                  CupertinoIcons.chevron_right, 
-                  color: theme.colorScheme.onSurface)
+                ? Icon(
+                    Icons.arrow_forward_ios_rounded,
+                    color: theme.colorScheme.onSurface)
+                : Icon(
+                    CupertinoIcons.chevron_right,
+                    color: theme.colorScheme.onSurface),
           ),
         ],
       ),

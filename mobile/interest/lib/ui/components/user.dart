@@ -1,14 +1,14 @@
 class User {
   final String idUser;
   final String nickname;
-  final String? profilePhotoUrl;
+  final String profilePhotoUrl;
   final List<String> interests;
   final List<String> motivations;
 
   User({
     required this.idUser,
     required this.nickname,
-    this.profilePhotoUrl,
+    required this.profilePhotoUrl,
     required this.interests,
     required this.motivations,
   });

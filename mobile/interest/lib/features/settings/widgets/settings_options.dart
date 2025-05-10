@@ -21,7 +21,6 @@ class SettingsOptions extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
-    final talker = TalkerFlutter.init();
     final theme = Theme.of(context);
 
     return Column(
@@ -170,7 +169,7 @@ class SettingsOptions extends StatelessWidget{
                 context,
                 MaterialPageRoute(
                   builder: (context) => TalkerScreen(
-                    talker: talker,
+                    talker: Provider.of<Talker>(context), //talker,
                     appBarTitle: AppLocalizations.of(context)!.logs,
                     theme: TalkerScreenTheme(
                       backgroundColor: theme.colorScheme.surface,

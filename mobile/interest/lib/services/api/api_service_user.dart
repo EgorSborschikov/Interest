@@ -1,12 +1,26 @@
 import 'package:dio/dio.dart';
 import 'package:interest/utils/config.dart';
+import 'package:talker_dio_logger/talker_dio_logger_interceptor.dart';
+import 'package:talker_dio_logger/talker_dio_logger_settings.dart';
+import 'package:talker_flutter/talker_flutter.dart';
 
 class ApiServiceUser {
   final Dio _dio = Dio();
+  final Talker talker = Talker();
 
   ApiServiceUser(){
-    _dio.options.baseUrl = 'http://$apiBaseUrl:$apiBasePort/';
+    _dio.options.baseUrl = 'http://$apiBaseUrl:$apiBasePort';
     //_dio.options.connectTimeout = Duration(seconds: 5);
+    _dio.interceptors.add(
+      TalkerDioLogger(
+        talker: talker,
+        settings: const TalkerDioLoggerSettings(
+          printRequestHeaders: true,
+          printResponseHeaders: true,
+          printResponseMessage: true,
+        ),
+      ),
+    );
   }
 
   Future<Response> getUser(String userId) async {

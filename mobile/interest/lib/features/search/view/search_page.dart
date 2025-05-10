@@ -12,24 +12,31 @@ class SearchPage extends StatefulWidget{
 }
 
 class _SearchPageState extends State<SearchPage> {
-  final ApiServiceSearch apiServiceSearch = ApiServiceSearch();
+  final apiServiceSearch = ApiServiceSearch();
   List<User> users = [];
   String searchQuery = '';
+  bool isLoading = false;
 
-  @override
-  void initState() {
-    super.initState();
-    _fecthUsers();
-  }
+  Future<void> _fetchUser() async {
+    if (searchQuery.isEmpty){
+      return;
+    }
 
-  Future<void> _fecthUsers() async {
+    setState(() {
+      isLoading = true;
+    });
+
     try {
-      final response = await apiServiceSearch.searchUsersByNickname(searchQuery);
+      final fetchedUsers = await apiServiceSearch.searchUsersByNickname(searchQuery);
       setState(() {
-        users = (response.data as List).map((userData) => User.fromJson(userData)).toList();
+        users = fetchedUsers;
+        isLoading = false;
       });
     } catch (e) {
       print('Error: $e');
+      setState(() {
+        isLoading = false;
+      });
     }
   }
 
@@ -39,24 +46,29 @@ class _SearchPageState extends State<SearchPage> {
       body: CustomScrollView(
         slivers: [
           PlatformSearchSliverAppBar(
-            onSearch: (query) { 
+            onSearch: (query) {
               setState(() {
                 searchQuery = query;
               });
-              _fecthUsers();
-            },
+              _fetchUser();
+            }
           ),
           const SliverToBoxAdapter(child: SizedBox(height: 16)),
           SliverList(
             delegate: SliverChildBuilderDelegate(
               (context, index) {
-                if (users.isEmpty) {
-                  return Center(child: PlatformProgressIndicator());
+                if (isLoading){
+                  return const Center(child: PlatformProgressIndicator());
                 }
+
+                if (users.isEmpty){
+                  return const Center(child: Text('No users found'));
+                }
+
                 final user = users[index];
                 return UserSearchCard(user: user);
               },
-              childCount: users.isEmpty ? 1 : users.length,
+              childCount: isLoading ? 1 : users.isEmpty ? 1 : users.length,
             ),
           ),
         ],
